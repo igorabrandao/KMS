@@ -1,0 +1,12 @@
+var searchData=
+[
+  ['false',['false',['../chargedbyservicereport__pec-view_8php.html#a5df37b7f02e5cdc7d9412b7f872b8e01',1,'false():&#160;chargedbyservicereport_pec-view.php'],['../detailreportbyregister__pec-view_8php.html#a5df37b7f02e5cdc7d9412b7f872b8e01',1,'false():&#160;detailreportbyregister_pec-view.php'],['../detailreportbyutilization__pec-view_8php.html#a5df37b7f02e5cdc7d9412b7f872b8e01',1,'false():&#160;detailreportbyutilization_pec-view.php']]],
+  ['foot_2ephp',['foot.php',['../foot_8php.html',1,'']]],
+  ['footer_2ephp',['footer.php',['../footer_8php.html',1,'']]],
+  ['foreach',['foreach',['../cadastrar__contratoaires-view_8php.html#a9bd44eb3688d7bb496b84bfbf95f7635',1,'foreach():&#160;cadastrar_contratoaires-view.php'],['../cadastrar__contratooperadora-view_8php.html#aac2d36f3d064d4472c676cd35d2ceb44',1,'foreach():&#160;cadastrar_contratooperadora-view.php'],['../cadastrar__representante-view_8php.html#aac2d36f3d064d4472c676cd35d2ceb44',1,'foreach():&#160;cadastrar_representante-view.php'],['../visualizador__fatura-view_8php.html#ab6457528d126052b2de515eec34686e3',1,'foreach():&#160;visualizador_fatura-view.php'],['../cadastrar__book-view_8php.html#aac2d36f3d064d4472c676cd35d2ceb44',1,'foreach():&#160;cadastrar_book-view.php'],['../cadastrar__modulobook-view_8php.html#aac2d36f3d064d4472c676cd35d2ceb44',1,'foreach():&#160;cadastrar_modulobook-view.php'],['../chargedbyservicereport__pec-view_8php.html#a48b582ef0e9a81ed51dc5aa7efb4fb5f',1,'foreach():&#160;chargedbyservicereport_pec-view.php'],['../chargedreport__pec-view_8php.html#ab6457528d126052b2de515eec34686e3',1,'foreach():&#160;chargedreport_pec-view.php'],['../detailreport__pec-view_8php.html#ab6457528d126052b2de515eec34686e3',1,'foreach():&#160;detailreport_pec-view.php'],['../menu__pec-view_8php.html#ab6457528d126052b2de515eec34686e3',1,'foreach():&#160;menu_pec-view.php']]],
+  ['format',['format',['../global-functions_8js.html#aa04f07ed1fa370eff613d6475ca4554a',1,'global-functions.js']]],
+  ['format_5fhh_5fmm_5fss',['format_hh_mm_ss',['../global-functions_8php.html#a374199cea9990817b40cf9f07f739bf4',1,'global-functions.php']]],
+  ['format_5fmin_5fsec',['format_min_sec',['../global-functions_8php.html#a9543faeb058fc8fcb2f38117390e00d6',1,'global-functions.php']]],
+  ['format_5fmm_5fss',['format_mm_ss',['../global-functions_8php.html#a31e7770a58282aeaa740bfab50ab80a4',1,'global-functions.php']]],
+  ['formatmbkb',['formatMbKb',['../global-functions_8php.html#a14af79c097c59182c55286edca3e6fb2',1,'global-functions.php']]]
+];

@@ -1,0 +1,27 @@
+var global_functions_8php =
+[
+    [ "__autoload", "global-functions_8php.html#a80a3892ecad687b96b542109495df0f0", null ],
+    [ "chk_array", "global-functions_8php.html#a253f9bc9f967aeddcde6f550eaadd29d", null ],
+    [ "compare_float", "global-functions_8php.html#a225ca41f3df180c4a28c967aafab621e", null ],
+    [ "count_pages_pdf", "global-functions_8php.html#a9f3bdf32839ceebbc7ce8d702483de7b", null ],
+    [ "decrypted_url", "global-functions_8php.html#a153d561add2d1cf07e9957d35e9bcb6a", null ],
+    [ "encrypted_url", "global-functions_8php.html#acc327643986323ff13165ec2892c1bc5", null ],
+    [ "format_hh_mm_ss", "global-functions_8php.html#a374199cea9990817b40cf9f07f739bf4", null ],
+    [ "format_min_sec", "global-functions_8php.html#a9543faeb058fc8fcb2f38117390e00d6", null ],
+    [ "format_mm_ss", "global-functions_8php.html#a31e7770a58282aeaa740bfab50ab80a4", null ],
+    [ "formatMbKb", "global-functions_8php.html#a14af79c097c59182c55286edca3e6fb2", null ],
+    [ "get_client_ip", "global-functions_8php.html#a60c272fc241308897b84acf903fea679", null ],
+    [ "hashSSHA", "global-functions_8php.html#af168aa2129512bbd0f68a35ecb21accc", null ],
+    [ "iif", "global-functions_8php.html#a6a4eca421875c947145a865431f936f4", null ],
+    [ "mask_string", "global-functions_8php.html#ad28ad0d480927c351238196560f84796", null ],
+    [ "min_sec_sum", "global-functions_8php.html#afe8f6a9d7515f8ab8c83faac3843a58f", null ],
+    [ "multi_explode", "global-functions_8php.html#ae7ab9e4f323f326af175405065aeeb91", null ],
+    [ "multi_explode_keep_delimiter", "global-functions_8php.html#a8ff2ec0e1d7d7f5693cfde50fd70287f", null ],
+    [ "real_currency", "global-functions_8php.html#a62602a663a09e9aca8962145c61f17a4", null ],
+    [ "real_sum", "global-functions_8php.html#a9ad781cc5b5724d473ef2f8e175bf434", null ],
+    [ "remove_accent", "global-functions_8php.html#a72332b0a8e9b5ec0712876383d751e8d", null ],
+    [ "str_replace_last", "global-functions_8php.html#afffb2dc01ddb77fe7b7087f2dc83ec74", null ],
+    [ "usd_currency", "global-functions_8php.html#ac147ec0a7e22b90232394ee5185467ba", null ],
+    [ "v_num", "global-functions_8php.html#a753c577690cd2c6186adb69093ce99e0", null ],
+    [ "EPSILON", "global-functions_8php.html#a5593e0e1975e8ecac4f4b64ffe42d984", null ]
+];
