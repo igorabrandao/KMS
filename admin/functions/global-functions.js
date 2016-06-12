@@ -513,6 +513,13 @@
 	*/
 	function applyCustomMasks()
 	{
+		$('[name="CPF"]').mask('999.999.999-99', {reverse: true});
+		$('[name="CNPJ"]').mask('99.999.999/9999-99', {reverse: true});
+		$('[name="DATA_NASCIMENTO"]').mask('99/99/9999');
+		$('[name="CEP"]').mask('99999-999');
+		$('[name="TELEFONE"]').mask('(99)9999-9999');
+		$('[name="CELULAR"]').mask('(99)99999-9999');
+
 		$('.date').mask('00/00/0000');
 		$('.time').mask('00:00:00');
 		$('.date_time').mask('00/00/0000 00:00:00');
@@ -521,8 +528,6 @@
 		$('.phone_with_ddd').mask('(00) 0000-0000');
 		$('.phone_us').mask('(000) 000-0000');
 		$('.mixed').mask('AAA 000-S0S');
-		$('[name="CPF"]').mask('999.999.999-99', {reverse: true});
-		$('[name="CNPJ"]').mask('99.999.999/9999-99', {reverse: true});
 		$('.money').mask('000.000.000.000.000,00', {reverse: true});
 		$('.money2').mask("#.##0,00", {reverse: true});
 		$('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
