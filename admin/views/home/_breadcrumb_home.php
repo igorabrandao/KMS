@@ -7,8 +7,7 @@
 			<div class="left">
 				<ul class="breadcrumb">
 
-					<li><a href="dashboard.html">Mango</a></li>
-					<li><a href="javascript:void(0);">Dashboard</a></li>
+					<li><a href="javascript:void(0);">Página inicial</a></li>
 
 				</ul>
 			</div>

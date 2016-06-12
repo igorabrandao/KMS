@@ -58,7 +58,7 @@
 		<meta name="author" content="Igor A. Brandão">
 
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="<?php echo HOME_URI;?>/favicon.ico" />
+		<link rel="shortcut icon" href="<?php echo HOME_URI;?>/favicon.png" />
 
 		<!-- CSS -->
 

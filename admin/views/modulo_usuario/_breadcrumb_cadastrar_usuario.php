@@ -8,7 +8,8 @@
 				<ul class="breadcrumb">
 
 					<li><a href="<?php echo HOME_URI;?>">Página inicial</a></li>
-					<li><a href="javascript:void(0);">Gerenciar usuários</a></li>
+					<li><a href="<?php echo join(DIRECTORY_SEPARATOR, array(HOME_URI, 'modulo_usuario')); ?>">Gerenciar usuários</a></li>
+					<li><a href="javascript:void(0);">Novo usuário</a></li>
 
 				</ul>
 			</div>

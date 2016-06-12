@@ -8,17 +8,17 @@
 <!-- start: CONTENT -->
 <section id="content" class="container_12 clearfix" data-sort=true>
 
-	<h1 class="grid_12 margin-top no-margin-top-phone">Gestão de Usuários</h1>
+	<h1 class="grid_12 margin-top no-margin-top-phone" title="Gestão de Usuários">Gestão de Usuários</h1>
 
 	<div class="tabletools">
 		<div class="left">
-			<a class="open-add-client-dialog" href="javascript:void(0);" title="Adicionar novo usuário">
+			<a class="open-add-client-dialog" href="<?php echo join(DIRECTORY_SEPARATOR, array(HOME_URI, 'modulo_usuario/cadastrar_usuario')); ?>" title="Adicionar novo usuário">
 				<img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/user--plus.png" alt="" height=16 width=16/>
 				Novo usuário
 			</a>
 		</div>
 		<div class="right">
-			<a class="open-add-client-dialog" href="javascript:void(0);" title="Editar usuário já existente">
+			<a class="open-add-client-dialog" href="<?php echo join(DIRECTORY_SEPARATOR, array(HOME_URI, 'modulo_usuario/editar_usuario')); ?>" title="Editar usuário já existente">
 				<img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/user--pencil.png" alt="" height=16 width=16/>
 				Editar usuário
 			</a>
