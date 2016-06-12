@@ -1427,7 +1427,7 @@
 				 * up. When not infinite scroll, always do it.
 				 */
 				if ( !oSettings.oScroll.bInfinite || !oSettings._bInitComplete ||
-				 	oSettings.bSorted || oSettings.bFiltered )
+				 	oSettings.bSorted || oSettings.bfiltrado )
 				{
 					while( (n = oSettings.nTBody.firstChild) )
 					{
@@ -1453,7 +1453,7 @@
 			
 			/* Draw is complete, sorting and filtering must be as well */
 			oSettings.bSorted = false;
-			oSettings.bFiltered = false;
+			oSettings.bfiltrado = false;
 			oSettings.bDrawing = false;
 			
 			if ( oSettings.oFeatures.bServerSide )
@@ -1899,7 +1899,7 @@
 			}
 			
 			if ( !oSettings.oScroll.bInfinite ||
-				   (oSettings.oScroll.bInfinite && (oSettings.bSorted || oSettings.bFiltered)) )
+				   (oSettings.oScroll.bInfinite && (oSettings.bSorted || oSettings.bfiltrado)) )
 			{
 				_fnClearTable( oSettings );
 			}
@@ -2056,7 +2056,7 @@
 			}
 			
 			/* Tell the draw function we have been filtering */
-			oSettings.bFiltered = true;
+			oSettings.bfiltrado = true;
 			$(oSettings.oInstance).trigger('filter', oSettings);
 			
 			/* Redraw the table */
@@ -2385,7 +2385,7 @@
 		 */
 		function _fnUpdateInfo ( oSettings )
 		{
-			/* Show information about the table */
+			/* Exibir information about the table */
 			if ( !oSettings.oFeatures.bInfo || oSettings.aanFeatures.i.length === 0 )
 			{
 				return;
@@ -2407,7 +2407,7 @@
 			else if ( iTotal === 0 )
 			{
 				/* Empty record set after filtering */
-				sOut = oLang.sInfoEmpty +' '+ oLang.sInfoFiltered;
+				sOut = oLang.sInfoEmpty +' '+ oLang.sInfofiltrado;
 			}
 			else if ( iTotal == iMax )
 			{
@@ -2417,7 +2417,7 @@
 			else
 			{
 				/* Record set after filtering */
-				sOut = oLang.sInfo +' '+ oLang.sInfoFiltered;
+				sOut = oLang.sInfo +' '+ oLang.sInfofiltrado;
 			}
 		
 			// Convert the macros
@@ -2482,7 +2482,7 @@
 				return;
 			}
 			
-			/* Show the display HTML options */
+			/* Exibir the display HTML options */
 			_fnAddOptionsHtml( oSettings );
 			
 			/* Build and draw the header / footer for the table */
@@ -2493,7 +2493,7 @@
 				_fnDrawHead( oSettings, oSettings.aoFooter );
 			}
 		
-			/* Okay to show that something is going on now */
+			/* Okay to Exibir that something is going on now */
 			_fnProcessingDisplay( oSettings, true );
 			
 			/* Calculate sizes for columns */
@@ -2512,7 +2512,7 @@
 			
 			/* If there is default sorting required - let's do it. The sort function will do the
 			 * drawing for us. Otherwise we draw the table regardless of the Ajax source - this allows
-			 * the table to look initialised for Ajax sourcing data (show 'loading' message possibly)
+			 * the table to look initialised for Ajax sourcing data (Exibir 'loading' message possibly)
 			 */
 			if ( oSettings.oFeatures.bSort )
 			{
@@ -2686,7 +2686,7 @@
 				oSettings._iDisplayLength = parseInt(iVal, 10);
 				_fnCalculateEnd( oSettings );
 				
-				/* If we have space to show extra rows (backing up from the end point - then do so */
+				/* If we have space to Exibir extra rows (backing up from the end point - then do so */
 				if ( oSettings.fnDisplayEnd() == oSettings.fnRecordsDisplay() )
 				{
 					oSettings._iDisplayStart = oSettings.fnDisplayEnd() - oSettings._iDisplayLength;
@@ -2885,21 +2885,21 @@
 		/**
 		 * Display or hide the processing indicator
 		 *  @param {object} oSettings dataTables settings object
-		 *  @param {bool} bShow Show the processing indicator (true) or not (false)
+		 *  @param {bool} bExibir Exibir the processing indicator (true) or not (false)
 		 *  @memberof DataTable#oApi
 		 */
-		function _fnProcessingDisplay ( oSettings, bShow )
+		function _fnProcessingDisplay ( oSettings, bExibir )
 		{
 			if ( oSettings.oFeatures.bProcessing )
 			{
 				var an = oSettings.aanFeatures.r;
 				for ( var i=0, iLen=an.length ; i<iLen ; i++ )
 				{
-					an[i].style.visibility = bShow ? "visible" : "hidden";
+					an[i].style.visibility = bExibir ? "visible" : "hidden";
 				}
 			}
 		
-			$(oSettings.oInstance).trigger('processing', [oSettings, bShow]);
+			$(oSettings.oInstance).trigger('processing', [oSettings, bExibir]);
 		}
 		
 		
@@ -3361,7 +3361,7 @@
 			$(nScrollBody).scroll();
 			
 			/* If sorting or filtering has occurred, jump the scrolling back to the top */
-			if ( o.bSorted || o.bFiltered )
+			if ( o.bSorted || o.bfiltrado )
 			{
 				nScrollBody.scrollTop = 0;
 			}
@@ -4795,7 +4795,7 @@
 		 *  @param {string} [oOpts.page=all] Limit the selection to the currently displayed page
 		 *    ("current") or not ("all"). If 'current' is given, then order is assumed to be 
 		 *    'current' and filter is 'applied', regardless of what they might be given as.
-		 *  @returns {object} jQuery object, filtered by the given selector.
+		 *  @returns {object} jQuery object, filtrado by the given selector.
 		 *  @dtopt API
 		 *
 		 *  @example
@@ -5244,7 +5244,7 @@
 		 *
 		 *  @example
 		 *    $(document).ready(function() {
-		 *      // This example is fairly pointless in reality, but shows how fnDestroy can be used
+		 *      // This example is fairly pointless in reality, but Exibirs how fnDestroy can be used
 		 *      var oTable = $('#example').dataTable();
 		 *      oTable.fnDestroy();
 		 *    } );
@@ -5400,7 +5400,7 @@
 		 *  @param {int|null} [iColumn] Column to limit filtering to
 		 *  @param {bool} [bRegex=false] Treat as regular expression or not
 		 *  @param {bool} [bSmart=true] Perform smart filtering or not
-		 *  @param {bool} [bShowGlobal=true] Show the input global filter in it's input box(es)
+		 *  @param {bool} [bExibirGlobal=true] Exibir the input global filter in it's input box(es)
 		 *  @param {bool} [bCaseInsensitive=true] Do case-insensitive matching (true) or not (false)
 		 *  @dtopt API
 		 *
@@ -5412,7 +5412,7 @@
 		 *      oTable.fnFilter( 'test string' );
 		 *    } );
 		 */
-		this.fnFilter = function( sInput, iColumn, bRegex, bSmart, bShowGlobal, bCaseInsensitive )
+		this.fnFilter = function( sInput, iColumn, bRegex, bSmart, bExibirGlobal, bCaseInsensitive )
 		{
 			var oSettings = _fnSettingsFromNode( this[DataTable.ext.iApiIndex] );
 			
@@ -5431,9 +5431,9 @@
 				bSmart = true;
 			}
 			
-			if ( bShowGlobal === undefined || bShowGlobal === null )
+			if ( bExibirGlobal === undefined || bExibirGlobal === null )
 			{
-				bShowGlobal = true;
+				bExibirGlobal = true;
 			}
 			
 			if ( bCaseInsensitive === undefined || bCaseInsensitive === null )
@@ -5451,7 +5451,7 @@
 					"bCaseInsensitive": bCaseInsensitive
 				}, 1 );
 				
-				if ( bShowGlobal && oSettings.aanFeatures.f )
+				if ( bExibirGlobal && oSettings.aanFeatures.f )
 				{
 					var n = oSettings.aanFeatures.f;
 					for ( var i=0, iLen=n.length ; i<iLen ; i++ )
@@ -5758,9 +5758,9 @@
 		
 		
 		/**
-		 * Show a particular column
+		 * Exibir a particular column
 		 *  @param {int} iCol The column whose display should be changed
-		 *  @param {bool} bShow Show (true) or hide (false) the column
+		 *  @param {bool} bExibir Exibir (true) or hide (false) the column
 		 *  @param {bool} [bRedraw=true] Redraw the table or not
 		 *  @dtopt API
 		 *
@@ -5772,7 +5772,7 @@
 		 *      oTable.fnSetColumnVis( 1, false );
 		 *    } );
 		 */
-		this.fnSetColumnVis = function ( iCol, bShow, bRedraw )
+		this.fnSetColumnVis = function ( iCol, bExibir, bRedraw )
 		{
 			var oSettings = _fnSettingsFromNode( this[DataTable.ext.iApiIndex] );
 			var i, iLen;
@@ -5781,13 +5781,13 @@
 			var nTd, bAppend, iBefore;
 			
 			/* No point in doing anything if we are requesting what is already true */
-			if ( aoColumns[iCol].bVisible == bShow )
+			if ( aoColumns[iCol].bVisible == bExibir )
 			{
 				return;
 			}
 			
-			/* Show the column */
-			if ( bShow )
+			/* Exibir the column */
+			if ( bExibir )
 			{
 				var iInsert = 0;
 				for ( i=0 ; i<iCol ; i++ )
@@ -5848,7 +5848,7 @@
 			}
 		
 			/* Clear to set the visible flag */
-			aoColumns[iCol].bVisible = bShow;
+			aoColumns[iCol].bVisible = bExibir;
 		
 			/* Redraw the header and footer based on the new column visibility */
 			_fnDrawHead( oSettings, oSettings.aoHeader );
@@ -5887,7 +5887,7 @@
 		 *      var oTable = $('#example').dataTable();
 		 *      var oSettings = oTable.fnSettings();
 		 *      
-		 *      // Show an example parameter from the settings
+		 *      // Exibir an example parameter from the settings
 		 *      alert( oSettings._iDisplayStart );
 		 *    } );
 		 */
@@ -5900,7 +5900,7 @@
 		/**
 		 * Sort the table by a particular column
 		 *  @param {int} iCol the data index to sort on. Note that this will not match the 
-		 *    'display index' if you have hidden data entries
+		 *    'display index' if you have hidden data registros
 		 *  @dtopt API
 		 *
 		 *  @example
@@ -6776,7 +6776,7 @@
 		 * type based filtering, and a lot more comprehensive as it allows you complete control
 		 * over the filtering logic. Each element in this array is a function (parameters
 		 * described below) that is called for every row in the table, and your logic decides if
-		 * it should be included in the filtered data set or not.
+		 * it should be included in the filtrado data set or not.
 		 *   <ul>
 		 *     <li>
 		 *       Function input parameters:
@@ -6791,7 +6791,7 @@
 		 *     <li>
 		 *       Function return:
 		 *       <ul>
-		 *         <li>{boolean} Include the row in the filtered result set (true) or not (false)</li>
+		 *         <li>{boolean} Include the row in the filtrado result set (true) or not (false)</li>
 		 *       </ul>
 		 *     </il>
 		 *   </ul>
@@ -6799,7 +6799,7 @@
 		 *  @default []
 		 *
 		 *  @example
-		 *    // The following example shows custom filtering being applied to the fourth column (i.e.
+		 *    // The following example Exibirs custom filtering being applied to the fourth column (i.e.
 		 *    // the aData[3] index) based on two input values from the end-user, matching the data in 
 		 *    // a certain range.
 		 *    $.fn.dataTableExt.afnFiltering.push(
@@ -7000,7 +7000,7 @@
 		 * (or have it automatically detected for you by DataTables or a type detection plug-in), 
 		 * you will typically be using this for custom sorting, but it can also be used to provide 
 		 * custom filtering by allowing you to pre-processing the data and returning the data in
-		 * the format that should be filtered upon. This is done by adding functions this object 
+		 * the format that should be filtrado upon. This is done by adding functions this object 
 		 * with a parameter name which matches the sType for that target column. This is the
 		 * corollary of <i>afnSortData</i> for filtering data.
 		 *   <ul>
@@ -7756,8 +7756,8 @@
 	
 	
 		/**
-		 * This parameter allows you to readily specify the entries in the length drop
-		 * down menu that DataTables shows when pagination is enabled. It can be 
+		 * This parameter allows you to readily specify the registros in the length drop
+		 * down menu that DataTables Exibirs when pagination is enabled. It can be 
 		 * either a 1D array of options which will be used for both the displayed 
 		 * option and the value, or a 2D array which will use the array in the first 
 		 * position as the value, and the array in the second position as the 
@@ -7951,9 +7951,9 @@
 	
 	
 		/**
-		 * Enable or disable the table information display. This shows information 
+		 * Enable or disable the table information display. This Exibirs information 
 		 * about the data that is currently visible on the page, including information
-		 * about filtered data if that action is being performed.
+		 * about filtrado data if that action is being performed.
 		 *  @type boolean
 		 *  @default true
 		 *  @dtopt Features
@@ -8023,7 +8023,7 @@
 		 * Enable or disable the display of a 'processing' indicator when the table is
 		 * being processed (e.g. a sort). This is particularly useful for tables with
 		 * large amounts of data where it can take a noticeable amount of time to sort
-		 * the entries.
+		 * the registros.
 		 *  @type boolean
 		 *  @default false
 		 *  @dtopt Features
@@ -8333,14 +8333,14 @@
 	
 		/**
 		 * When rendering large numbers in the information element for the table
-		 * (i.e. "Showing 1 to 10 of 57 entries") DataTables will render large numbers
+		 * (i.e. "Exibindo 1 to 10 of 57 registros") DataTables will render large numbers
 		 * to have a comma separator for the 'thousands' units (e.g. 1 million is
 		 * rendered as "1,000,000") to help readability for the end user. This
 		 * function will override the default method DataTables uses.
 		 *  @type function
 		 *  @member
 		 *  @param {int} iIn number to be formatted
-		 *  @returns {string} formatted string for DataTables to show the number
+		 *  @returns {string} formatted string for DataTables to Exibir the number
 		 *  @dtopt Callbacks
 		 * 
 		 *  @example
@@ -8697,7 +8697,7 @@
 		 *  @dtopt Callbacks
 		 * 
 		 *  @example
-		 *    // Show an alert with the filtering value that was saved
+		 *    // Exibir an alert with the filtering value that was saved
 		 *    $(document).ready(function() {
 		 *      $('#example').dataTable( {
 		 *        "bStateSave": true,
@@ -8799,7 +8799,7 @@
 		 * indicated by giving the parameter as an array, where the first element is
 		 * the number of records available after filtering and the second element is the
 		 * number of records without filtering (allowing the table information element
-		 * to be shown correctly).
+		 * to be Exibirn correctly).
 		 *  @type int | array
 		 *  @default null
 		 *  @dtopt Options
@@ -9058,7 +9058,7 @@
 			},
 		
 			/**
-			 * This string is shown in preference to sZeroRecords when the table is
+			 * This string is Exibirn in preference to sZeroRecords when the table is
 			 * empty of data (regardless of filtering). Note that this is an optional
 			 * parameter - if it is not given, the value of sZeroRecords will be used
 			 * instead (either the default or given value).
@@ -9084,38 +9084,38 @@
 			 * variables are all dynamically replaced as the table display updates, and 
 			 * can be freely moved or removed as the language requirements change.
 			 *  @type string
-			 *  @default Showing _START_ to _END_ of _TOTAL_ entries
+			 *  @default Exibindo _START_ to _END_ of _TOTAL_ registros
 			 *  @dtopt Language
 			 * 
 			 *  @example
 			 *    $(document).ready(function() {
 			 *      $('#example').dataTable( {
 			 *        "oLanguage": {
-			 *          "sInfo": "Got a total of _TOTAL_ entries to show (_START_ to _END_)"
+			 *          "sInfo": "Got a total of _TOTAL_ registros to Exibir (_START_ to _END_)"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Exibindo _START_ até _END_ de _TOTAL_ registros",
 		
 		
 			/**
 			 * Display information string for when the table is empty. Typically the 
 			 * format of this string should match sInfo.
 			 *  @type string
-			 *  @default Showing 0 to 0 of 0 entries
+			 *  @default Exibindo 0 to 0 of 0 registros
 			 *  @dtopt Language
 			 * 
 			 *  @example
 			 *    $(document).ready(function() {
 			 *      $('#example').dataTable( {
 			 *        "oLanguage": {
-			 *          "sInfoEmpty": "No entries to show"
+			 *          "sInfoEmpty": "No registros to Exibir"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "Exibindo 0 to 0 of 0 registros",
 		
 		
 			/**
@@ -9123,25 +9123,25 @@
 			 * to the information (sInfo) to give an idea of how strong the filtering 
 			 * is. The variable _MAX_ is dynamically updated.
 			 *  @type string
-			 *  @default (filtered from _MAX_ total entries)
+			 *  @default (filtrado from _MAX_ total registros)
 			 *  @dtopt Language
 			 * 
 			 *  @example
 			 *    $(document).ready(function() {
 			 *      $('#example').dataTable( {
 			 *        "oLanguage": {
-			 *          "sInfoFiltered": " - filtering from _MAX_ records"
+			 *          "sInfofiltrado": " - filtering from _MAX_ records"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
+			"sInfofiltrado": "(filtrado de _MAX_ total registros)",
 		
 		
 			/**
 			 * If can be useful to append extra information to the info string at times,
 			 * and this variable does exactly that. This information will be appended to
-			 * the sInfo (sInfoEmpty and sInfoFiltered in whatever combination they are
+			 * the sInfo (sInfoEmpty and sInfofiltrado in whatever combination they are
 			 * being used) at all times.
 			 *  @type string
 			 *  @default <i>Empty string</i>
@@ -9151,7 +9151,7 @@
 			 *    $(document).ready(function() {
 			 *      $('#example').dataTable( {
 			 *        "oLanguage": {
-			 *          "sInfoPostFix": "All records shown are derived from real information."
+			 *          "sInfoPostFix": "All records Exibirn are derived from real information."
 			 *        }
 			 *      } );
 			 *    } );
@@ -9186,7 +9186,7 @@
 			 * with a default select list of 10, 25, 50 and 100, and can be replaced
 			 * with a custom select box if required.
 			 *  @type string
-			 *  @default Show _MENU_ entries
+			 *  @default Exibir _MENU_ registros
 			 *  @dtopt Language
 			 * 
 			 *  @example
@@ -9216,12 +9216,12 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "Exibir _MENU_ registros",
 		
 		
 			/**
 			 * When using Ajax sourced data and during the first draw when DataTables is
-			 * gathering the data, this message is shown in an empty row in the table to
+			 * gathering the data, this message is Exibirn in an empty row in the table to
 			 * indicate to the end user the the data is being loaded. Note that this
 			 * parameter is not used when loading data by server-side processing, just
 			 * Ajax sourced data with client-side processing.
@@ -9238,7 +9238,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLoadingRecords": "Loading...",
+			"sLoadingRecords": "Carregando...",
 		
 		
 			/**
@@ -9257,7 +9257,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sProcessing": "Processing...",
+			"sProcessing": "Processando...",
 		
 		
 			/**
@@ -9267,7 +9267,7 @@
 			 * control over where it appears in the string. If "_INPUT_" is not given
 			 * then the input box is appended to the string automatically.
 			 *  @type string
-			 *  @default Search:
+			 *  @default Buscar:
 			 *  @dtopt Language
 			 * 
 			 *  @example
@@ -9290,7 +9290,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "Buscar:",
 		
 		
 			/**
@@ -9317,8 +9317,8 @@
 		
 		
 			/**
-			 * Text shown inside the table records when the is no information to be
-			 * displayed after filtering. sEmptyTable is shown when there is simply no
+			 * Text Exibirn inside the table records when the is no information to be
+			 * displayed after filtering. sEmptyTable is Exibirn when there is simply no
 			 * information in the table at all (regardless of filtering).
 			 *  @type string
 			 *  @default No matching records found
@@ -9333,7 +9333,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			"sZeroRecords": "Nenhum registro foi encontrado."
 		},
 	
 	
@@ -9500,7 +9500,7 @@
 		/**
 		 * Enable horizontal scrolling. When a table is too wide to fit into a certain
 		 * layout, or you have a large number of columns in the table, you can enable
-		 * x-scrolling to show the table in a viewport, which can be scrolled. This
+		 * x-scrolling to Exibir the table in a viewport, which can be scrolled. This
 		 * property can be any CSS unit, or a number (in which case it will be treated
 		 * as a pixel measurement).
 		 *  @type string
@@ -10381,7 +10381,7 @@
 			"bFilter": null,
 			
 			/**
-			 * Table information element (the 'Showing x of y records' div) enable
+			 * Table information element (the 'Exibindo x of y records' div) enable
 			 * flag.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
@@ -11072,7 +11072,7 @@
 		 *  @default false
 		 *  @deprecated
 		 */
-		"bFiltered": false,
+		"bfiltrado": false,
 		
 		/**
 		 * Flag attached to the settings object so you can check in the draw 
@@ -11403,11 +11403,11 @@
 		
 		
 		/*
-		 * Variable: iFullNumbersShowPages
+		 * Variable: iFullNumbersExibirPages
 		 * Purpose:  Change the number of pages which can be seen
 		 * Scope:    jQuery.fn.dataTableExt.oPagination
 		 */
-		"iFullNumbersShowPages": 5,
+		"iFullNumbersExibirPages": 5,
 		
 		/*
 		 * Variable: full_numbers
@@ -11465,7 +11465,7 @@
 			
 			/*
 			 * Function: oPagination.full_numbers.fnUpdate
-			 * Purpose:  Update the list of page buttons shows
+			 * Purpose:  Update the list of page buttons Exibirs
 			 * Returns:  -
 			 * Inputs:   object:oSettings - dataTables settings object
 			 *           function:fnCallbackDraw - draw function to call on page change
@@ -11477,7 +11477,7 @@
 					return;
 				}
 				
-				var iPageCount = DataTable.ext.oPagination.iFullNumbersShowPages;
+				var iPageCount = DataTable.ext.oPagination.iFullNumbersExibirPages;
 				var iPageCountHalf = Math.floor(iPageCount / 2);
 				var iPages = Math.ceil((oSettings.fnRecordsDisplay()) / oSettings._iDisplayLength);
 				var iCurrentPage = Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength) + 1;
@@ -11837,7 +11837,7 @@
 	 *  @event
 	 *  @param {event} e jQuery event object
 	 *  @param {object} oSettings DataTables settings object
-	 *  @param {boolean} bShow Flag for if DataTables is doing processing or not
+	 *  @param {boolean} bExibir Flag for if DataTables is doing processing or not
 	 */
 
 	/**

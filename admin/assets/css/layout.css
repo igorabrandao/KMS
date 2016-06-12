@@ -913,11 +913,11 @@ aside nav > ul > li.current > a:before {
 }
 
 aside nav > ul > li.current > a:hover:before {
-	background: url('../img/layout/navigation/arrow-hover.png');
+	background: url('../assets/img/layout/navigation/arrow-hover.png');
 }
 
 aside nav > ul > li.current > a:hover:active:before {
-	background: url('../img/layout/navigation/arrow-active.png');
+	background: url('../assets/img/layout/navigation/arrow-active.png');
 }
 
 aside nav > ul > li.current > a:hover:after {

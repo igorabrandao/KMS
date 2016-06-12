@@ -17,7 +17,7 @@
 	define( 'HOME_URI', 'http://localhost:2380/KMS/admin' );
 
 	// ACTIVE TAB
-	$GLOBALS['ACTIVE_TAB'] = 'Painel_Controle';
+	$GLOBALS['ACTIVE_TAB'] = 'Dashboard';
 
 	// HOSTNAME
 	define( 'HOSTNAME', 'localhost' );

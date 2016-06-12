@@ -1,6 +1,6 @@
 <!-- start: TOOLBAR -->
 	<!-- The container of the sidebar and content box -->
-	<div role="main" id="main" class="container_12 clearfix">
+	<div role="main" id="main" class="container_12 clearfix" style="margin-top: -20px;">
 
 		<!-- The blue toolbar stripe -->
 		<section class="toolbar">

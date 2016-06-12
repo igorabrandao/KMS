@@ -212,7 +212,7 @@
 		
 		</div>
 	</div><!-- End of .grid_6 -->
-	
+
 	<div class="grid_12">
 		<div class="box">
 		

@@ -63,42 +63,42 @@
 		<!-- CSS -->
 
 		<!-- Layout Styles -->
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/style.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/grid.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/layout.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/style.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/grid.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/layout.css?<?php echo time(); ?>">
 
 		<!-- Icon Styles -->
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/icons.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/fonts/font-awesome.css">
-		<!--[if IE 8]><link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/fonts/font-awesome-ie7.css"><![endif]-->
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/icons.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/fonts/font-awesome.css?<?php echo time(); ?>">
+		<!--[if IE 8]><link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/fonts/font-awesome-ie7.css?<?php echo time(); ?>"><![endif]-->
 
 		<!-- External Styles -->
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/external/jquery-ui-1.8.21.custom.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/external/jquery.chosen.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/external/jquery.cleditor.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/external/jquery.colorpicker.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/external/jquery.elfinder.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/external/jquery.fancybox.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/external/jquery.jgrowl.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/external/jquery.plupload.queue.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/external/syntaxhighlighter/shCore.css" />
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/external/syntaxhighlighter/shThemeDefault.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/external/jquery-ui-1.8.21.custom.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/external/jquery.chosen.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/external/jquery.cleditor.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/external/jquery.colorpicker.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/external/jquery.elfinder.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/external/jquery.fancybox.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/external/jquery.jgrowl.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/external/jquery.plupload.queue.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/external/syntaxhighlighter/shCore.css?<?php echo time(); ?>" />
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/external/syntaxhighlighter/shThemeDefault.css?<?php echo time(); ?>" />
 
 		<!-- Elements -->
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/elements.css">
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/forms.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/elements.css?<?php echo time(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/forms.css?<?php echo time(); ?>">
 
 		<!-- OPTIONAL: Print Stylesheet for Invoice -->
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/print-invoice.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/print-invoice.css?<?php echo time(); ?>">
 
 		<!-- Typographics -->
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/typographics.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/typographics.css?<?php echo time(); ?>">
 
 		<!-- Responsive Design -->
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/media-queries.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/media-queries.css?<?php echo time(); ?>">
 
 		<!-- Bad IE Styles -->
-		<link rel="stylesheet" href="<?php echo HOME_URI;?>/assets/css/ie-fixes.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo HOME_URI;?>/assets/css/ie-fixes.css?<?php echo time(); ?>">
 
 		<!-- JS -->
 		<script src="<?php echo HOME_URI;?>/functions/global-functions.js"></script>
@@ -138,5 +138,76 @@
 		<!--<![endif]-->
 		<!-- IE8 doesn't like lodash -->
 		<!--[if lt IE 9]><script src="http://documentcloud.github.com/underscore/underscore.js"></script><![endif]-->
+
+		<!-- start: MAIN JAVASCRIPTS -->
+			<!-- General Scripts -->
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/jquery.hashchange.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/jquery.idle-timer.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/jquery.plusplus.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/jquery.jgrowl.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/jquery.scrollTo.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/jquery.ui.touch-punch.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/jquery.ui.multiaccordion.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/number-functions.js"></script>
+			
+			<!-- Forms -->
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.autosize.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.checkbox.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.chosen.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.cleditor.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.colorpicker.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.ellipsis.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.fileinput.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.fullcalendar.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.maskedinput.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.mousewheel.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.placeholder.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.pwdmeter.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.ui.datetimepicker.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.ui.spinner.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/jquery.validate.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/uploader/plupload.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/uploader/plupload.html5.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/uploader/plupload.html4.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/uploader/plupload.flash.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/forms/uploader/jquery.plupload.queue/jquery.plupload.queue.js"></script>
+				
+			<!-- Charts -->
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/charts/jquery.flot.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/charts/jquery.flot.orderBars.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/charts/jquery.flot.pie.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/charts/jquery.flot.resize.js"></script>
+			
+			<!-- Explorer -->
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/explorer/jquery.elfinder.js"></script>
+			
+			<!-- Fullstats -->
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/fullstats/jquery.css-transform.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/fullstats/jquery.animate-css-rotate-scale.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/fullstats/jquery.sparkline.js"></script>
+			
+			<!-- Syntax Highlighter -->
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/syntaxhighlighter/shCore.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/syntaxhighlighter/shAutoloader.js"></script>
+			
+			<!-- Dynamic Tables -->
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/dynamic-tables/jquery.dataTables.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/dynamic-tables/jquery.dataTables.tableTools.zeroClipboard.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/dynamic-tables/jquery.dataTables.tableTools.js"></script>
+			
+			<!-- Gallery -->
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/gallery/jquery.fancybox.js"></script>
+			
+			<!-- Tooltips -->
+			<script src="<?php echo HOME_URI;?>/assets/js/mylibs/tooltips/jquery.tipsy.js"></script>
+			
+			<!-- Do not touch! -->
+			<script src="<?php echo HOME_URI;?>/assets/js/mango.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/plugins.js"></script>
+			<script src="<?php echo HOME_URI;?>/assets/js/script.js"></script>
+
+			<!-- Your custom JS goes here -->
+
+		<!-- end: MAIN JAVASCRIPTS -->
 
 	</head>

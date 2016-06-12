@@ -4,55 +4,35 @@
 
 			<!-- Navigation -->
 			<nav><ul class="collapsible accordion">
-			
-				<li class="current"><a href="dashboard.html"><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/dashboard.png" alt="" height=16 width=16>Dashboard</a></li>
-				
-				<li>
-					<a href="javascript:void(0);"><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/ui-layered-pane.png" alt="" height=16 width=16>UI Widgets<span class="badge">4</span></a>
-					<ul>
-						<li><a href="ui_general.html"><span class="icon icon-list"></span>General</a></li>
-						<li><a href="ui_extras.html"><span class="icon icon-cog"></span>Extras</a></li>
-						<li><a href="ui_icons.html"><span class="icon icon-picture"></span>Icons</a></li>
-						<li><a href="ui_grid.html"><span class="icon icon-th"></span>Grid</a></li>
-					</ul>
+
+				<li <?php if ( $GLOBALS['ACTIVE_TAB'] == 'Dashboard' ) echo "class='current'"; ?> >
+					<a href="<?php echo join(DIRECTORY_SEPARATOR, array(HOME_URI)); ?>">
+						<img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/dashboard.png" alt="" height=16 width=16>
+						Página Inicial
+					</a>
 				</li>
-				
-				<li>
-					<a href="javascript:void(0);"><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/application-form.png" alt="" height=16 width=16>Form Elements</a>
-					<ul>
-						<li><a href="forms.html"><span class="icon icon-list-alt"></span>General</a></li>
-						<li><a href="forms_validation.html"><span class="icon icon-warning-sign"></span>Validation</a></li>
-						<li><a href="forms_extras.html"><span class="icon icon-magic"></span>Fileuploader &amp; Wizard</a></li>
-					</ul>
+
+				<li <?php if ( $GLOBALS['ACTIVE_TAB'] == 'Usuario' ) echo "class='current'"; ?> >
+					<a href="<?php echo join(DIRECTORY_SEPARATOR, array(HOME_URI, 'modulo_usuario')); ?>">
+						<img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/users.png" alt="" height=16 width=16>
+						Usuários
+					</a>
 				</li>
-				
+
 				<li>
-					<a href="javascript:void(0);"><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/chart.png" alt="" height=16 width=16>Statistics / Charts<span class="badge">2</span></a>
-					<ul>
-						<li><a href="statistics.html"><span class="icon icon-sitemap"></span>Statistics Elements</a></li>
-						<li><a href="charts.html"><span class="icon icon-bar-chart"></span>Charts</a></li>
-					</ul>
+					<a href="javascript:void(0);"><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/ui-layered-pane.png" alt="" height=16 width=16>Frequência<span class="badge">4</span></a>
 				</li>
-				
+
 				<li>
-					<a href="javascript:void(0);"><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/table.png" alt="" height=16 width=16>Tables</a>
-					<ul>
-						<li><a href="tables_static.html"><span class="icon icon-check-empty"></span>Static</a></li>
-						<li><a href="tables_dynamic.html"><span class="icon icon-table"></span>Dynamic</a></li>
-						<li><a href="tables_full.html"><span class="icon icon-fullscreen"></span>Full</a></li>
-					</ul>
+					<a href="javascript:void(0);"><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/ui-layered-pane.png" alt="" height=16 width=16>Exames de faixa<span class="badge">4</span></a>
 				</li>
-				
+
 				<li>
-					<a href="javascript:void(0);"><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/document-horizontal.png" alt="" height=16 width=16>Other Pages</a>
-					<ul>
-						<li><a href="login.html">Login</a></li>
-						<li><a href="pages_profile.html">Profile</a></li>
-						<li><a href="pages_invoice.html">Invoice<span class="badge grey">1 open</span></a></li>
-						<li><a href="pages_faq.html">FAQ</a></li>
-						<li><a href="pages_search.html">Search</a></li>
-						<li><a href="pages_error_404.html">Error Page (404)</a></li>
-					</ul>
+					<a href="javascript:void(0);"><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/ui-layered-pane.png" alt="" height=16 width=16>Relatórios<span class="badge">4</span></a>
+				</li>
+
+				<li>
+					<a href="javascript:void(0);"><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/ui-layered-pane.png" alt="" height=16 width=16>Pagamentos<span class="badge">4</span></a>
 				</li>
 				
 			</ul></nav><!-- End of nav -->				
