@@ -28,7 +28,7 @@
 
 	?>
 
-	<h1 class="grid_12 margin-top no-margin-top-phone" title="Cadastrar novo Usuário">Cadastrar novo Usuário</h1>
+	<h1 class="grid_12 margin-top no-margin-top-phone" title="Editar Usuário">Editar Usuário</h1>
 
 	<div class="grid_12">
 

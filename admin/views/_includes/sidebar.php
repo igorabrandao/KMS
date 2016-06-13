@@ -7,20 +7,23 @@
 
 				<li <?php if ( $GLOBALS['ACTIVE_TAB'] == 'Dashboard' ) echo "class='current'"; ?> >
 					<a href="<?php echo join(DIRECTORY_SEPARATOR, array(HOME_URI)); ?>">
-						<img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/dashboard.png" alt="" height=16 width=16>
+						<img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/dashboard.png" title="Página inicial" alt="Página inicial" height=16 width=16>
 						Página Inicial
 					</a>
 				</li>
 
 				<li <?php if ( $GLOBALS['ACTIVE_TAB'] == 'Usuario' ) echo "class='current'"; ?> >
 					<a href="<?php echo join(DIRECTORY_SEPARATOR, array(HOME_URI, 'modulo_usuario')); ?>">
-						<img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/users.png" alt="" height=16 width=16>
+						<img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/users.png" title="Usuários" alt="Usuários" height=16 width=16>
 						Usuários
 					</a>
 				</li>
 
-				<li>
-					<a href="javascript:void(0);"><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/ui-layered-pane.png" alt="" height=16 width=16>Frequência<span class="badge">4</span></a>
+				<li <?php if ( $GLOBALS['ACTIVE_TAB'] == 'Aula' ) echo "class='current'"; ?> >
+					<a href="<?php echo join(DIRECTORY_SEPARATOR, array(HOME_URI, 'modulo_aula')); ?>">
+						<img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/document-task.png" title="Aulas" alt="Aulas" height=16 width=16>
+						Aulas
+					</a>
 				</li>
 
 				<li>
