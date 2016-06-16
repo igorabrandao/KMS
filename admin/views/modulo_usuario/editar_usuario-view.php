@@ -3,28 +3,23 @@
 
 	<?php
 
-		// Check if exists a status variable
-		if ( isset($_GET["status"]) && strcmp($_GET["status"], "success") == 0 )
+		// Check if service ID is valid
+		if ( isset($_GET['id_User']) && $_GET['id_User'] != '' )
 		{
-			?>
-				<div class="alert success">
-					<span class="icon"></span>
-					<strong>Sucesso!</strong> O usuário foi cadastrado com sucesso.
-				</div>
-			<?php
-		}
-		else if ( isset($_GET["status"]) && strcmp($_GET["status"], "error") == 0 )
-		{
-			?>
-				<div class="alert error no-margin-top">
-					<span class="icon"></span>
-					<strong>Erro!</strong> Algo inesperado ocorreu no cadastro.
-				</div>
-			<?php
-		}
+			$user_id = decrypted_url($_GET['id_User'] , "**");
 
-		// Insertion function
-		$modelo->insert_user();
+			// Load contract information
+			$user_info = $modelo->get_user_info($user_id);
+
+			// Edit function
+			$modelo->edit_user($user_info["ID_ENDERECO"], $user_info["ID_USUARIO"]);
+		}
+		else
+		{
+			?><script>alert("Houve um problema com o identificador do usuário. Por favor, tente novamente.");
+			window.location.href = "<?php echo HOME_URI . '/modulo_usuario'; ?>";</script> <?php
+			return false;
+		}
 
 	?>
 
@@ -49,8 +44,18 @@
 				<fieldset id="wiz_pessoal">
 
 					<div class="row">
+						<label for="FOTO">
+							<strong>Foto: </strong>
+						</label>
+						<div>
+							<input type="file" id="FOTO" name="FOTO" />
+						</div>
+					</div>
+
+					<div class="row">
 						<label for="ID_TIPO_USUARIO">
 							<strong>Tipo de usuário: </strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<select name="ID_TIPO_USUARIO" id="ID_TIPO_USUARIO" class="search">
@@ -62,7 +67,10 @@
 
 									foreach ($list as $value)
 									{
-										echo "<option value='" . $value[0] . "'>" . $value[1] . "</option>";
+										if ( $user_info["ID_TIPO_USUARIO"] == $value[0] )
+											echo "<option value='" . $value[0] . "' selected>" . $value[1] . "</option>";
+										else
+											echo "<option value='" . $value[0] . "'>" . $value[1] . "</option>";
 									}
 
 								?>
@@ -73,49 +81,67 @@
 					<div class="row">
 						<label for="PRIMEIRO_NOME">
 							<strong>Primeiro nome:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<input type="text" class="required" name="PRIMEIRO_NOME" id="PRIMEIRO_NOME" maxlength="30" />
+							<input type="text" class="required" name="PRIMEIRO_NOME" id="PRIMEIRO_NOME" maxlength="30" value="<?php echo iif($user_info["PRIMEIRO_NOME"]); ?>" />
 						</div>
 					</div>
 
 					<div class="row">
 						<label for="SOBRENOME">
 							<strong>Sobrenome:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<input type="text" class="required" name="SOBRENOME" id="SOBRENOME" maxlength="30" />
+							<input type="text" class="required" name="SOBRENOME" id="SOBRENOME" maxlength="30" value="<?php echo iif($user_info["SOBRENOME"]); ?>" />
 						</div>
 					</div>
 
 					<div class="row">
 						<label for="CPF">
 							<strong>CPF:</strong>
-							<small>ex: 123.456.789-11</small>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<input type="text" class="required" name="CPF" id="CPF" />
+							<input type="text" class="required" name="CPF" id="CPF" value="<?php echo iif($user_info["CPF"]); ?>"/>
 						</div>
 					</div>
 
 					<div class="row">
 						<label for="DATA_NASCIMENTO">
 							<strong>Data de nascimento:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<input type="date" class="required" name="DATA_NASCIMENTO" id="DATA_NASCIMENTO" />
+							<input type="date" class="required" name="DATA_NASCIMENTO" id="DATA_NASCIMENTO" value="<?php echo iif($user_info["DATA_NASCIMENTO"]); ?>" />
 						</div>
 					</div>
 
 					<div class="row">
 						<label for="SEXO">
 							<strong>Sexo: </strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<select class="required" name="SEXO" id="SEXO">
 								<option value="">Selecione...</option> 
 								<option value="M">Masculino</option> 
 								<option value="F">Feminino</option> 
+								<?php
+
+									if ( strcmp($user_info["SEXO"], "M") == 0 )
+									{
+										echo "<option value='M' selected>Masculino</option>";
+										echo "<option value='F'>Feminino</option>";
+									}
+									else
+									{
+										echo "<option value='M'>Masculino</option>";
+										echo "<option value='F' selected>Feminino</option>";
+									}
+
+								?>
 							</select>
 						</div>
 					</div>
@@ -127,14 +153,14 @@
 						<div>
 							<select name="TIPO_SANGUINEO" id="TIPO_SANGUINEO" class="search">
 								<option value="">Selecione...</option> 
-								<option value="A+">Sangue tipo A+</option> 
-								<option value="A-">Sangue tipo A-</option> 
-								<option value="B+">Sangue tipo B+</option> 
-								<option value="B-">Sangue tipo B-</option> 
-								<option value="AB+">Sangue tipo AB+</option> 
-								<option value="AB-">Sangue tipo AB-</option> 
-								<option value="O+">Sangue tipo O+</option> 
-								<option value="O-">Sangue tipo O-</option>
+								<option value="A+" <?php if ( strcmp($user_info["TIPO_SANGUINEO"], "A+") == 0 ) { echo "selected"; } ?> >Sangue tipo A+</option> 
+								<option value="A-" <?php if ( strcmp($user_info["TIPO_SANGUINEO"], "A-") == 0 ) { echo "selected"; } ?> >Sangue tipo A-</option> 
+								<option value="B+" <?php if ( strcmp($user_info["TIPO_SANGUINEO"], "B+") == 0 ) { echo "selected"; } ?> >Sangue tipo B+</option> 
+								<option value="B-" <?php if ( strcmp($user_info["TIPO_SANGUINEO"], "B-") == 0 ) { echo "selected"; } ?> >Sangue tipo B-</option> 
+								<option value="AB+" <?php if ( strcmp($user_info["TIPO_SANGUINEO"], "AB+") == 0 ) { echo "selected"; } ?> >Sangue tipo AB+</option> 
+								<option value="AB-" <?php if ( strcmp($user_info["TIPO_SANGUINEO"], "AB-") == 0 ) { echo "selected"; } ?> >Sangue tipo AB-</option> 
+								<option value="O+" <?php if ( strcmp($user_info["TIPO_SANGUINEO"], "O+") == 0 ) { echo "selected"; } ?> >Sangue tipo O+</option> 
+								<option value="O-" <?php if ( strcmp($user_info["TIPO_SANGUINEO"], "O-") == 0 ) { echo "selected"; } ?> >Sangue tipo O-</option>
 							</select>
 						</div>
 					</div>
@@ -142,9 +168,10 @@
 					<div class="row">
 						<label for="FAIXA">
 							<strong>Faixa: </strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<select name="ID_FAIXA" id="ID_FAIXA" class="search">
+							<select name="ID_FAIXA" class="required" id="ID_FAIXA" class="search">
 								<option value="">Selecione...</option>
 								<?php
 
@@ -153,7 +180,10 @@
 
 									foreach ($list as $value)
 									{
-										echo "<option value='" . $value[0] . "'>" . $value[1] . "</option>";
+										if ( $user_info["ID_FAIXA"] == $value[0] )
+											echo "<option value='" . $value[0] . "' selected>" . $value[1] . "</option>";
+										else
+											echo "<option value='" . $value[0] . "'>" . $value[1] . "</option>";
 									}
 
 								?>
@@ -168,9 +198,10 @@
 					<div class="row">
 						<label for="EMAIL">
 							<strong>E-mail:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<input type="text" class="required" name="EMAIL" id="EMAIL" maxlength="100" />
+							<input type="text" email="true" class="required" name="EMAIL" id="EMAIL" maxlength="100" value="<?php echo iif($user_info["EMAIL"]); ?>" />
 						</div>
 					</div>
 
@@ -179,7 +210,7 @@
 							<strong>Telefone fixo:</strong>
 						</label>
 						<div>
-							<input type="text" name="TELEFONE" id="TELEFONE"/>
+							<input type="text" name="TELEFONE" id="TELEFONE" value="<?php echo iif($user_info["TELEFONE"]); ?>"/>
 						</div>
 					</div>
 
@@ -188,25 +219,27 @@
 							<strong>Celular:</strong>
 						</label>
 						<div>
-							<input type="text" name="CELULAR" id="CELULAR"/>
+							<input type="text" name="CELULAR" id="CELULAR" value="<?php echo iif($user_info["CELULAR"]); ?>" />
 						</div>
 					</div>
 
 					<div class="row">
 						<label for="CEP">
 							<strong>CEP:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<input type="text" class="required" name="CEP" id="CEP"/>
+							<input type="text" class="required" name="CEP" id="CEP" value="<?php echo iif($user_info["CEP"]); ?>"/>
 						</div>
 					</div>
 
 					<div class="row">
 						<label for="LOGRADOURO">
 							<strong>Logradouro:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<input type="text" class="required" name="LOGRADOURO" id="LOGRADOURO"/>
+							<input type="text" class="required" name="LOGRADOURO" id="LOGRADOURO" value="<?php echo iif($user_info["LOGRADOURO"]); ?>"/>
 						</div>
 					</div>
 
@@ -215,7 +248,7 @@
 							<strong>Número:</strong>
 						</label>
 						<div>
-							<input type="text" name="NUMERO" id="NUMERO"/>
+							<input type="text" name="NUMERO" id="NUMERO" value="<?php echo iif($user_info["NUMERO"]); ?>"/>
 						</div>
 					</div>
 
@@ -224,62 +257,51 @@
 							<strong>Complemento:</strong>
 						</label>
 						<div>
-							<input type="text" name="COMPLEMENTO" id="COMPLEMENTO"/>
+							<input type="text" name="COMPLEMENTO" id="COMPLEMENTO" value="<?php echo iif($user_info["COMPLEMENTO"]); ?>"/>
 						</div>
 					</div>
 
 					<div class="row">
 						<label for="BAIRRO">
 							<strong>Bairro:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<input type="text" class="required" name="BAIRRO" id="BAIRRO"/>
+							<input type="text" class="required" name="BAIRRO" id="BAIRRO" value="<?php echo iif($user_info["BAIRRO"]); ?>"/>
 						</div>
 					</div>
 
 					<div class="row">
 						<label for="CIDADE">
 							<strong>Cidade:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<input type="text" class="required" name="CIDADE" id="CIDADE"/>
+							<input type="text" class="required" name="CIDADE" id="CIDADE" value="<?php echo iif($user_info["CIDADE"]); ?>"/>
 						</div>
 					</div>
 
 					<div class="row">
 						<label for="UF">
 							<strong>UF:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<select class="required" name="UF" id="UF" class="search">
-								<option value="">Selecione...</option> 
-								<option value="AC">Acre</option>
-								<option value="AL">Alagoas</option>
-								<option value="AP">Amapá</option>
-								<option value="AM">Amazonas</option>
-								<option value="BA">Bahia</option>
-								<option value="CE">Ceará</option>
-								<option value="DF">Distrito Federal</option>
-								<option value="ES">Espirito Santo</option>
-								<option value="GO">Goiás</option>
-								<option value="MA">Maranhão</option>
-								<option value="MS">Mato Grosso do Sul</option>
-								<option value="MT">Mato Grosso</option>
-								<option value="MG">Minas Gerais</option>
-								<option value="PA">Pará</option>
-								<option value="PB">Paraíba</option>
-								<option value="PR">Paraná</option>
-								<option value="PE">Pernambuco</option>
-								<option value="PI">Piauí</option>
-								<option value="RJ">Rio de Janeiro</option>
-								<option value="RN">Rio Grande do Norte</option>
-								<option value="RS">Rio Grande do Sul</option>
-								<option value="RO">Rondônia</option>
-								<option value="RR">Roraima</option>
-								<option value="SC">Santa Catarina</option>
-								<option value="SP">São Paulo</option>
-								<option value="SE">Sergipe</option>
-								<option value="TO">Tocantins</option>
+							<select class="required" name="ID_UF" id="ID_UF" class="search">
+								<?php
+
+									// State's list
+									$list = $modelo->get_state_list();
+
+									foreach ($list as $value)
+									{
+										if ( $user_info["ID_UF"] == $value[0] )
+											echo "<option value='" . $value[0] . "' selected>" . $value[1] . "</option>";
+										else
+											echo "<option value='" . $value[0] . "'>" . $value[1] . "</option>";
+									}
+
+								?>
 							</select>
 						</div>
 					</div>
@@ -291,8 +313,7 @@
 						<span class="icon"></span>
 						<strong>Sucesso!</strong> Todas as informações foram corretamente preenchidas.
 					</div>
-					<p>Clique no botão &quotFinalizar cadastro&quot; para encerrar o cadastro. Uma mensagem de confirmação será enviado para o 
-					e-mail cadastrado.</p>
+					<p>Clique no botão &quotFinalizar edição&quot; para encerrar a edição.</p>
 				</fieldset>
 
 			</div><!-- End of .content -->
@@ -303,7 +324,7 @@
 				</div>
 				<div class="right">
 					<a href="#" class="button grey"><span><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/arrow.png" width=16 height=16></span>Próximo passo</a>
-					<a href="#" class="button finish"><span><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/arrow.png" width=16 height=16></span>Finalizar cadastro</a>
+					<a href="#" class="button finish"><span><img src="<?php echo HOME_URI;?>/assets/img/icons/packs/fugue/16x16/arrow.png" width=16 height=16></span>Finalizar edição</a>
 				</div>
 			</div><!-- End of .actions -->
 

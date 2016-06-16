@@ -77,6 +77,10 @@ table td.center {
 	text-align: center;
 }
 
+table td.middle {
+	vertical-align: middle;
+}
+
 
 .box.with-table .content table:not(.borders) td:first-child, .box.with-table .content table:not(.borders) th:first-child {
 	border-left: none;

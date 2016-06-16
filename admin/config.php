@@ -13,6 +13,9 @@
 	// UPLOAD URI
 	define( 'UP_ABSPATH', ABSPATH . '/resources/uploads/' );
 
+	// CHMOD FULL PERMISSION
+	define( 'FULL_PERMISSION', 0777 );
+
 	// HOME URI
 	define( 'HOME_URI', 'http://localhost:2380/KMS/admin' );
 

@@ -3,26 +3,6 @@
 
 	<?php
 
-		// Check if exists a status variable
-		if ( isset($_GET["status"]) && strcmp($_GET["status"], "success") == 0 )
-		{
-			?>
-				<div class="alert success">
-					<span class="icon"></span>
-					<strong>Sucesso!</strong> O usuário foi cadastrado com sucesso.
-				</div>
-			<?php
-		}
-		else if ( isset($_GET["status"]) && strcmp($_GET["status"], "error") == 0 )
-		{
-			?>
-				<div class="alert error no-margin-top">
-					<span class="icon"></span>
-					<strong>Erro!</strong> Algo inesperado ocorreu no cadastro.
-				</div>
-			<?php
-		}
-
 		// Insertion function
 		$modelo->insert_user();
 
@@ -49,8 +29,18 @@
 				<fieldset id="wiz_pessoal">
 
 					<div class="row">
+						<label for="FOTO">
+							<strong>Foto: </strong>
+						</label>
+						<div>
+							<input type="file" id="FOTO" name="FOTO" />
+						</div>
+					</div>
+
+					<div class="row">
 						<label for="ID_TIPO_USUARIO">
 							<strong>Tipo de usuário: </strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<select name="ID_TIPO_USUARIO" id="ID_TIPO_USUARIO" class="search">
@@ -73,6 +63,7 @@
 					<div class="row">
 						<label for="PRIMEIRO_NOME">
 							<strong>Primeiro nome:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<input type="text" class="required" name="PRIMEIRO_NOME" id="PRIMEIRO_NOME" maxlength="30" />
@@ -82,6 +73,7 @@
 					<div class="row">
 						<label for="SOBRENOME">
 							<strong>Sobrenome:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<input type="text" class="required" name="SOBRENOME" id="SOBRENOME" maxlength="30" />
@@ -91,7 +83,7 @@
 					<div class="row">
 						<label for="CPF">
 							<strong>CPF:</strong>
-							<small>ex: 123.456.789-11</small>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<input type="text" class="required" name="CPF" id="CPF" />
@@ -101,6 +93,7 @@
 					<div class="row">
 						<label for="DATA_NASCIMENTO">
 							<strong>Data de nascimento:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<input type="date" class="required" name="DATA_NASCIMENTO" id="DATA_NASCIMENTO" />
@@ -110,6 +103,7 @@
 					<div class="row">
 						<label for="SEXO">
 							<strong>Sexo: </strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<select class="required" name="SEXO" id="SEXO">
@@ -142,9 +136,10 @@
 					<div class="row">
 						<label for="FAIXA">
 							<strong>Faixa: </strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<select name="ID_FAIXA" id="ID_FAIXA" class="search">
+							<select name="ID_FAIXA" class="required" id="ID_FAIXA" class="search">
 								<option value="">Selecione...</option>
 								<?php
 
@@ -168,9 +163,10 @@
 					<div class="row">
 						<label for="EMAIL">
 							<strong>E-mail:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<input type="text" class="required" name="EMAIL" id="EMAIL" maxlength="100" />
+							<input type="text" email="true" class="required" name="EMAIL" id="EMAIL" maxlength="100" />
 						</div>
 					</div>
 
@@ -195,6 +191,7 @@
 					<div class="row">
 						<label for="CEP">
 							<strong>CEP:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<input type="text" class="required" name="CEP" id="CEP"/>
@@ -204,6 +201,7 @@
 					<div class="row">
 						<label for="LOGRADOURO">
 							<strong>Logradouro:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<input type="text" class="required" name="LOGRADOURO" id="LOGRADOURO"/>
@@ -231,6 +229,7 @@
 					<div class="row">
 						<label for="BAIRRO">
 							<strong>Bairro:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<input type="text" class="required" name="BAIRRO" id="BAIRRO"/>
@@ -240,6 +239,7 @@
 					<div class="row">
 						<label for="CIDADE">
 							<strong>Cidade:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
 							<input type="text" class="required" name="CIDADE" id="CIDADE"/>
@@ -249,37 +249,22 @@
 					<div class="row">
 						<label for="UF">
 							<strong>UF:</strong>
+							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<select class="required" name="UF" id="UF" class="search">
-								<option value="">Selecione...</option> 
-								<option value="AC">Acre</option>
-								<option value="AL">Alagoas</option>
-								<option value="AP">Amapá</option>
-								<option value="AM">Amazonas</option>
-								<option value="BA">Bahia</option>
-								<option value="CE">Ceará</option>
-								<option value="DF">Distrito Federal</option>
-								<option value="ES">Espirito Santo</option>
-								<option value="GO">Goiás</option>
-								<option value="MA">Maranhão</option>
-								<option value="MS">Mato Grosso do Sul</option>
-								<option value="MT">Mato Grosso</option>
-								<option value="MG">Minas Gerais</option>
-								<option value="PA">Pará</option>
-								<option value="PB">Paraíba</option>
-								<option value="PR">Paraná</option>
-								<option value="PE">Pernambuco</option>
-								<option value="PI">Piauí</option>
-								<option value="RJ">Rio de Janeiro</option>
-								<option value="RN">Rio Grande do Norte</option>
-								<option value="RS">Rio Grande do Sul</option>
-								<option value="RO">Rondônia</option>
-								<option value="RR">Roraima</option>
-								<option value="SC">Santa Catarina</option>
-								<option value="SP">São Paulo</option>
-								<option value="SE">Sergipe</option>
-								<option value="TO">Tocantins</option>
+							<select class="required" name="ID_UF" id="ID_UF" class="search">
+								<option value="">Selecione...</option>
+								<?php
+
+									// Stete's list
+									$list = $modelo->get_state_list();
+
+									foreach ($list as $value)
+									{
+										echo "<option value='" . $value[0] . "'>" . $value[1] . "</option>";
+									}
+
+								?>
 							</select>
 						</div>
 					</div>

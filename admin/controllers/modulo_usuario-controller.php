@@ -74,6 +74,29 @@
 
 			// /views/_includes/footer.php
 			require ABSPATH . '/views/_includes/footer.php';
+
+			//***********************************************************
+            //** EVENT HANDLER'S
+            //***********************************************************
+
+            // Store the action from $_GET ( insert, login, delete, etc )
+            if ( isset( $_REQUEST["action"] ) )
+            {
+                // Auxiliar variables
+                $action = $_REQUEST["action"];
+
+                // Check the action
+                switch ( $action )
+                {
+                    // Update select box content
+                    case 'delete':
+                    {
+                        // Call function from model instance
+                        $modelo->delete_user( $_REQUEST["user_ID"] );
+                        break;
+                    }
+                }
+            }
 		} // index
 
 		/** Functions section

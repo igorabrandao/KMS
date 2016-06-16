@@ -30,6 +30,18 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `KMS`.`estados`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `KMS`.`estados` (
+  `ID_ESTADO` INT NOT NULL AUTO_INCREMENT,
+  `UF` VARCHAR(2) NOT NULL,
+  `NOME` VARCHAR(50) NULL,
+  `DATA_FECHA` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`ID_ESTADO`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `KMS`.`endereco`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `KMS`.`endereco` (
@@ -40,9 +52,15 @@ CREATE TABLE IF NOT EXISTS `KMS`.`endereco` (
   `COMPLEMENTO` VARCHAR(100) NULL,
   `BAIRRO` VARCHAR(30) NOT NULL,
   `CIDADE` VARCHAR(20) NOT NULL,
-  `UF` VARCHAR(2) NOT NULL,
+  `ID_UF` INT NOT NULL,
   `DATA_FECHA` VARCHAR(20) NULL,
-  PRIMARY KEY (`ID_ENDERECO`))
+  PRIMARY KEY (`ID_ENDERECO`),
+  INDEX `ENDERECO_UF_FK_idx` (`ID_UF` ASC),
+  CONSTRAINT `ENDERECO_UF_FK`
+    FOREIGN KEY (`ID_UF`)
+    REFERENCES `KMS`.`estados` (`ID_ESTADO`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -55,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `KMS`.`usuario` (
   `ID_FAIXA` INT NOT NULL,
   `PRIMEIRO_NOME` VARCHAR(30) NOT NULL,
   `SOBRENOME` VARCHAR(30) NOT NULL,
-  `CPF` VARCHAR(11) NOT NULL,
+  `CPF` VARCHAR(20) NOT NULL,
   `DATA_NASCIMENTO` VARCHAR(10) NOT NULL,
   `SEXO` VARCHAR(1) NOT NULL,
   `EMAIL` VARCHAR(100) NOT NULL,
@@ -65,6 +83,7 @@ CREATE TABLE IF NOT EXISTS `KMS`.`usuario` (
   `CELULAR` VARCHAR(15) NULL,
   `ID_ENDERECO` INT NOT NULL,
   `TIPO_SANGUINEO` VARCHAR(3) NULL,
+  `FOTO` VARCHAR(255) NULL,
   `DATA_CADASTRO` VARCHAR(10) NOT NULL,
   `DATA_FECHA` VARCHAR(20) NULL,
   PRIMARY KEY (`ID_USUARIO`),
@@ -240,6 +259,42 @@ INSERT INTO `KMS`.`faixa` (`ID_FAIXA`, `NOME`, `SIGNIFICADO`, `TEMPO_TREINO`, `D
 INSERT INTO `KMS`.`faixa` (`ID_FAIXA`, `NOME`, `SIGNIFICADO`, `TEMPO_TREINO`, `DATA_FECHA`) VALUES (15, '8º. Dan (Hachidan)', NULL, NULL, NULL);
 INSERT INTO `KMS`.`faixa` (`ID_FAIXA`, `NOME`, `SIGNIFICADO`, `TEMPO_TREINO`, `DATA_FECHA`) VALUES (16, '9º. Dan (Kudan)', NULL, NULL, NULL);
 INSERT INTO `KMS`.`faixa` (`ID_FAIXA`, `NOME`, `SIGNIFICADO`, `TEMPO_TREINO`, `DATA_FECHA`) VALUES (17, '10º. Dan (Judan)', NULL, NULL, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `KMS`.`estados`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `KMS`;
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (1, 'AC', 'Acre', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (2, 'AL', 'Alagoas', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (3, 'AP', 'Amapá', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (4, 'AM', 'Amazonas', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (5, 'BA', 'Bahia', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (6, 'CE', 'Ceará', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (7, 'DF', 'Distrito Federal', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (8, 'ES', 'Espirito Santo', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (9, 'GO', 'Goiás', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (10, 'MA', 'Maranhão', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (11, 'MT', 'Mato Grosso', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (12, 'MS', 'Mato Grosso do Sul', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (13, 'MG', 'Minas Gerais', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (14, 'PA', 'Pará', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (15, 'PB', 'Paraiba', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (16, 'PR', 'Paraná', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (17, 'PE', 'Pernambuco', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (18, 'PI', 'Piauí', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (19, 'RJ', 'Rio de Janeiro', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (20, 'RN', 'Rio Grande do Norte', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (21, 'RS', 'Rio Grande do Sul', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (22, 'RO', 'Rondônia', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (23, 'RR', 'Roraima', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (24, 'SC', 'Santa Catarina', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (25, 'SP', 'São Paulo', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (26, 'SE', 'Sergipe', '');
+INSERT INTO `KMS`.`estados` (`ID_ESTADO`, `UF`, `NOME`, `DATA_FECHA`) VALUES (27, 'TO', 'Tocantis', '');
 
 COMMIT;
 
