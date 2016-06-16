@@ -237,7 +237,18 @@
 
 			// Generate a standard password to the user
 			$auxiliary_array = array();
-			$password = hashSSHA("mudar123");
+
+			// ******************************* HASH MODULE *******************************
+			// Base-2 logarithm of the iteration count used for password stretching
+			$hash_cost_log2 = 8;
+
+			// Do we require the hashes to be portable to older systems (less secure)?
+			$hash_portable = FALSE;
+
+			$phpass = new PasswordHash($hash_cost_log2, $hash_portable);
+			// ***************************************************************************
+
+			$password = $phpass->HashPassword("mudar123");
 
 			// Handle the user profile image
 			if ( isset($_FILES['FOTO']) && strcmp($_FILES['FOTO']['name'], "") != 0 )
@@ -247,8 +258,8 @@
 				$info_position += 1; // Added one more column
 			}
 
-			$auxiliary_array["SENHA"] = $password["encrypted"];
-			$auxiliary_array["CHAVE"] = $password["key"];
+			$auxiliary_array["SENHA"] = $password;
+			$auxiliary_array["CHAVE"] = "";
 			$auxiliary_array["ID_ENDERECO"] = 0;
 			$auxiliary_array["DATA_CADASTRO"] = date("d-m-Y H:i:s");
 

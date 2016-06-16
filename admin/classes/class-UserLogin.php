@@ -7,8 +7,23 @@
 	 * @package KMSMVC
 	 * @since 0.1
 	*/
-	class UserLogin
+	class UserLogin extends MainModel
 	{
+		/**
+		 * Class constructor
+		 *
+		 * Set the database, controller, parameter and user data.
+		 *
+		 * @since 0.1
+		 * @access public
+		 * @param object $db PDO Conexion object
+		*/
+		public function __construct( $db )
+		{
+			// Set DB (PDO)
+			$this->db = $db;
+		}
+
 		/**
 		 * User logged or not
 		 *
@@ -43,7 +58,7 @@
 		 *
 		 * Set the properties $logged_in and $login_error. Also set an array with user and password		 
 		*/
-		public function check_userlogin () 
+		public function check_userlogin() 
 		{
 			/*
 			 * Verify if exists a session with userdata key
@@ -73,6 +88,19 @@
 			{
 				// Set user data
 				$userdata = $_POST['userdata'];
+
+				// Make sure that ins't a HTTP POST
+				$userdata['post'] = true;
+			}
+
+			/*
+			 * Verify if it's a POST request
+			 * Login case (HTTP POST)
+			*/
+			if ( strcmp('POST', $_SERVER['REQUEST_METHOD']) == 0 )
+			{
+				// Set user data
+				$userdata = $_POST;
 
 				// Make sure that ins't a HTTP POST
 				$userdata['post'] = true;
@@ -121,13 +149,13 @@
 			}
 
 			// Check if user exists in the database
-			$query = $this->db->query( 'SELECT * FROM users WHERE user = ? LIMIT 1', array( $user ) );
+			$query = $this->db->query('SELECT `ID_USUARIO`, `ID_TIPO_USUARIO`, `PRIMEIRO_NOME`, `SOBRENOME`, `DATA_NASCIMENTO`, `EMAIL`, `SENHA`, `SESSION_ID` FROM `usuario` WHERE `EMAIL` = "' . $user . '" LIMIT 1');
 
 			// Check the query
-			if ( ! $query )
+			if ( !$query )
 			{
 				$this->logged_in = false;
-				$this->login_error = 'Internal error.';
+				$this->login_error = 'Erro interno.';
 
 				// Unset any existent user session
 				$this->logout();
@@ -138,24 +166,34 @@
 			$fetch = $query->fetch(PDO::FETCH_ASSOC);
 
 			// Get user ID
-			$user_id = (int) $fetch['user_id'];
+			$user_id = (int) $fetch['ID_USUARIO'];
 
 			// Check if user ID exists
 			if ( empty( $user_id ) )
 			{
 				$this->logged_in = false;
-				$this->login_error = 'User do not exists.';
+				$this->login_error = 'Usuário não existente.';
 
 				// Unset any existent user session
 				$this->logout();
 				return;
 			}
 
+			// ******************************* HASH MODULE *******************************
+			// Base-2 logarithm of the iteration count used for password stretching
+			$hash_cost_log2 = 8;
+
+			// Do we require the hashes to be portable to older systems (less secure)?
+			$hash_portable = FALSE;
+
+			$phpass = new PasswordHash($hash_cost_log2, $hash_portable);
+			// ***************************************************************************
+
 			// Compare the password with HASH from DB
-			if ( $this->phpass->CheckPassword( $user_password, $fetch['user_password'] ) )
+			if ( $phpass->CheckPassword( $user_password, $fetch['SENHA'] ) )
 			{
 				// Compare the sessionID with DB session
-				if ( session_id() != $fetch['user_session_id'] && ! $post )
+				if ( session_id() != $fetch['SESSION_ID'] && ! $post )
 				{
 					$this->logged_in = false;
 					$this->login_error = 'Wrong session ID.';
@@ -182,11 +220,12 @@
 					$_SESSION['userdata']['user_session_id'] = $session_id;
 
 					// Update session ID in database
-					$query = $this->db->query( 'UPDATE users SET user_session_id = ? WHERE user_id = ?', array( $session_id, $user_id ) );
+					$query = $this->db->query( 'UPDATE usuario SET SESSION_ID = ? WHERE ID_USUARIO = ?', array( $session_id, $user_id ) );
 				}
 
 				// Get an array with user permission
-				$_SESSION['userdata']['user_permissions'] = unserialize( $fetch['user_permissions'] );
+				//$_SESSION['userdata']['user_permissions'] = unserialize( $fetch['user_permissions'] );
+				$_SESSION['userdata']['user_permissions'] = "";
 
 				// Set the property logged_in as logged
 				$this->logged_in = true;
@@ -199,9 +238,20 @@
 				{
 					// Set the URL in a variable
 					$goto_url = urldecode( $_SESSION['goto_url'] );
+					$goto_url = str_replace("?action=logout", "", $goto_url);
 
 					// Remove URL session
 					unset( $_SESSION['goto_url'] );
+
+					// Redirect to the page
+					echo '<meta http-equiv="Refresh" content="0; url=' . $goto_url . '">';
+					echo '<script type="text/javascript">window.location.href = "' . $goto_url . '";</script>';
+					//header( 'location: ' . $goto_url );
+				}
+				else if ( defined( 'HOME_URI' ) )
+				{
+					// Set the URL in a variable
+					$goto_url = HOME_URI;
 
 					// Redirect to the page
 					echo '<meta http-equiv="Refresh" content="0; url=' . $goto_url . '">';
@@ -217,7 +267,7 @@
 				$this->logged_in = false;
 
 				// Password doesn't match
-				$this->login_error = 'Password does not match.';
+				$this->login_error = 'Usuário ou senha incorreto.';
 
 				// Remove all
 				$this->logout();
@@ -235,19 +285,23 @@
 		*/
 		protected function logout( $redirect = false )
 		{
-			// Remove all data from $_SESSION['userdata']
-			$_SESSION['userdata'] = array();
-
-			// Only to make sure (it isn't really needed)
-			unset( $_SESSION['userdata'] );
-
-			// Regenerates the session ID
-			session_regenerate_id();
-
-			if ( $redirect === true )
+			// The login page cannot redirect to itself
+			if ( strpos($_SERVER['REQUEST_URI'], "modulo_login") === false )
 			{
-				// Send the user to the login page
-				$this->goto_login();
+				// Remove all data from $_SESSION['userdata']
+				$_SESSION['userdata'] = array();
+
+				// Only to make sure (it isn't really needed)
+				unset( $_SESSION['userdata'] );
+
+				// Regenerates the session ID
+				session_regenerate_id();
+
+				if ( $redirect === true )
+				{
+					// Send the user to the login page
+					$this->goto_login();
+				}
 			}
 		}
 
@@ -260,7 +314,7 @@
 			if ( defined( 'HOME_URI' ) )
 			{
 				// Set login URL
-				$login_uri  = HOME_URI . '/login/';
+				$login_uri  = HOME_URI . '/modulo_login/';
 
 				// Set the current page
 				$_SESSION['goto_url'] = urlencode( $_SERVER['REQUEST_URI'] );

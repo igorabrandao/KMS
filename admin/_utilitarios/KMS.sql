@@ -8,6 +8,8 @@ USE `KMS` ;
 -- -----------------------------------------------------
 -- Table `KMS`.`tipoUsuario`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `KMS`.`tipoUsuario` ;
+
 CREATE TABLE IF NOT EXISTS `KMS`.`tipoUsuario` (
   `ID_TIPO_USUARIO` INT NOT NULL AUTO_INCREMENT,
   `DESCRICAO` VARCHAR(20) NOT NULL,
@@ -19,6 +21,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `KMS`.`faixa`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `KMS`.`faixa` ;
+
 CREATE TABLE IF NOT EXISTS `KMS`.`faixa` (
   `ID_FAIXA` INT NOT NULL AUTO_INCREMENT,
   `NOME` VARCHAR(40) NOT NULL,
@@ -32,6 +36,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `KMS`.`estados`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `KMS`.`estados` ;
+
 CREATE TABLE IF NOT EXISTS `KMS`.`estados` (
   `ID_ESTADO` INT NOT NULL AUTO_INCREMENT,
   `UF` VARCHAR(2) NOT NULL,
@@ -44,6 +50,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `KMS`.`endereco`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `KMS`.`endereco` ;
+
 CREATE TABLE IF NOT EXISTS `KMS`.`endereco` (
   `ID_ENDERECO` INT NOT NULL AUTO_INCREMENT,
   `CEP` VARCHAR(10) NOT NULL,
@@ -67,6 +75,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `KMS`.`usuario`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `KMS`.`usuario` ;
+
 CREATE TABLE IF NOT EXISTS `KMS`.`usuario` (
   `ID_USUARIO` INT NOT NULL AUTO_INCREMENT,
   `ID_TIPO_USUARIO` INT NOT NULL,
@@ -78,13 +88,13 @@ CREATE TABLE IF NOT EXISTS `KMS`.`usuario` (
   `SEXO` VARCHAR(1) NOT NULL,
   `EMAIL` VARCHAR(100) NOT NULL,
   `SENHA` VARCHAR(256) NOT NULL,
-  `CHAVE` VARCHAR(50) NOT NULL,
   `TELEFONE` VARCHAR(15) NULL,
   `CELULAR` VARCHAR(15) NULL,
   `ID_ENDERECO` INT NOT NULL,
   `TIPO_SANGUINEO` VARCHAR(3) NULL,
   `FOTO` VARCHAR(255) NULL,
   `DATA_CADASTRO` VARCHAR(10) NOT NULL,
+  `SESSION_ID` VARCHAR(256) NULL,
   `DATA_FECHA` VARCHAR(20) NULL,
   PRIMARY KEY (`ID_USUARIO`),
   INDEX `TIPO_USUARIO_FK_idx` (`ID_TIPO_USUARIO` ASC),
@@ -111,6 +121,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `KMS`.`associacao`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `KMS`.`associacao` ;
+
 CREATE TABLE IF NOT EXISTS `KMS`.`associacao` (
   `ID_ASSOCIACAO` INT NOT NULL AUTO_INCREMENT,
   `NOME` VARCHAR(50) NOT NULL,
@@ -134,6 +146,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `KMS`.`evento`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `KMS`.`evento` ;
+
 CREATE TABLE IF NOT EXISTS `KMS`.`evento` (
   `ID_EVENTO` INT NOT NULL AUTO_INCREMENT,
   `ID_USUARIO` INT NOT NULL COMMENT 'Identificação do usuário que criou o evento.',
@@ -162,6 +176,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `KMS`.`pagamento`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `KMS`.`pagamento` ;
+
 CREATE TABLE IF NOT EXISTS `KMS`.`pagamento` (
   `ID_PAGAMENTO` INT NOT NULL AUTO_INCREMENT,
   `ID_USUARIO` INT NOT NULL COMMENT 'Identificador do usuário que efetuou o pagamento.',
@@ -183,6 +199,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `KMS`.`aula`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `KMS`.`aula` ;
+
 CREATE TABLE IF NOT EXISTS `KMS`.`aula` (
   `ID_AULA` INT NOT NULL AUTO_INCREMENT,
   `DATA_AULA` VARCHAR(10) NOT NULL,
@@ -202,6 +220,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `KMS`.`frequencia`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `KMS`.`frequencia` ;
+
 CREATE TABLE IF NOT EXISTS `KMS`.`frequencia` (
   `ID_ALUNO` INT NOT NULL,
   `ID_AULA` INT NOT NULL,

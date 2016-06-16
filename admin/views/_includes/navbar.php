@@ -9,7 +9,7 @@
 					
 					<li><a href="javascript:void(0);" id="btn-lock"><span>--:--</span>Tela de bloqueio</a></li>
 					
-					<li class="red"><a href="login.html">Logout</a></li>
+					<li class="red"><a href="<?php echo HOME_URI . "?action=logout" ?>">Logout</a></li>
 					
 				</ul>
 			</div><!-- End of .right -->

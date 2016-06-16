@@ -79,8 +79,16 @@
 			// Parameters
 			$this->parametros = $parametros;
 
-			// Check login
-			$this->check_userlogin();
+			// Check logout
+			if ( isset($_GET["action"]) && strcmp($_GET["action"], "logout") == 0 )
+			{
+				$this->logout(true);
+			}
+			else
+			{
+				// Check login
+				$this->check_userlogin();
+			}
 		} // __construct
 
 		/**
