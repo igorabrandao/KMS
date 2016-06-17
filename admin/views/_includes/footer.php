@@ -22,4 +22,14 @@
 
 	</body>
 	<!-- end: BODY -->
+
+	<?php
+
+		if ( isset($_GET["q"]) && strcmp($_GET["q"], "") != 0 )
+		{
+			echo "<gcse:search></gcse:search>";
+		}
+
+	?>
+
 </html>

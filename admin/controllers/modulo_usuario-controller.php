@@ -197,6 +197,56 @@
 
 			// /views/_includes/footer.php
 			require ABSPATH . '/views/_includes/footer.php';
-		} // index
+		} // editarusuario
+
+		/** Functions section
+		 * Load the page "http://localhost:2380/KMS/admin/modulo_usuario/perfil_usuario"
+		*/
+		public function perfilusuario( )
+		{
+			// Page title
+			$this->title = 'Perfil Usuário';
+
+			// Function parameter
+			$parametros = ( func_num_args() >= 1 ) ? func_get_arg(0) : array();
+
+			/** Load files from view **/
+
+			// Load model
+			$modelo = $this->load_model('modulo_usuario/modulo_usuario-model');
+
+			// /views/_includes/header.php
+			require ABSPATH . '/views/_includes/header.php';
+
+			// /views/_includes/loading_box.php
+			require ABSPATH . '/views/_includes/loading_box.php';
+
+			// /views/_includes/lock_screen.php
+			require ABSPATH . '/views/_includes/lock_screen.php';
+
+			// /views/_includes/message_box.php
+			require ABSPATH . '/views/_includes/message_box.php';
+
+			// /views/home/_breadcrumb_perfil_usuario.php
+			require ABSPATH . '/views/modulo_usuario/_breadcrumb_perfil_usuario.php';
+
+			// /views/_includes/navbar.php
+			require ABSPATH . '/views/_includes/navbar.php';
+
+			// /views/_includes/logo_menu.php
+			require ABSPATH . '/views/_includes/logo_menu.php';
+
+			// /views/_includes/toolbar.php
+			require ABSPATH . '/views/_includes/toolbar.php';
+
+			// /views/_includes/sidebar.php
+			require ABSPATH . '/views/_includes/sidebar.php';
+
+			// /views/modulo_usuario/perfil_usuario-view.php
+			require ABSPATH . '/views/modulo_usuario/perfil_usuario-view.php';
+
+			// /views/_includes/footer.php
+			require ABSPATH . '/views/_includes/footer.php';
+		} // editarusuario
 	}
 ?>

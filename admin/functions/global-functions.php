@@ -5,16 +5,14 @@
 		//**********
 		//**********  PGM: PHP GENERAL FUNCTIONS CLASS
 		//**********
-		//**********  CUSTOMER:	AIRES SOLUÇÕES CORPORATIVAS
+		//**********  CUSTOMER:	AKC - ASSOCIAÇÃO KARATÊ CIDADÃO
 		//**********
 		//**********  IGOR AUGUSTO BRANDÃO
 		//**********  VERSÃO:	1.0
 		//**********  VERSÃO:	1.2
-		//**********  VERSÃO:	1.3
 		//**********
-		//**********  JUL/2014 - Creation
-		//**********  OCT/2015 - Update
-		//**********  DEC/2015 - Update
+		//**********  MAY/2016 - Creation
+		//**********  JUN/2016 - Update
 		//**********
 	//**********************************************************************************
 
@@ -101,6 +99,75 @@
 		$basename = basename( $filename_, file_ext( $filename_ ) );
 		return substr( $basename, 0, (strlen($basename) - 1) );
 	} // file_basename
+
+	/** 
+	 * Método para tratar entradas maliciosas de dados
+	 * modo de usar pegando dados vindos do formulario
+	 * $nome = anti_injection($_POST["nome"]);
+	 * senha = anti_injection($_POST["senha"]);
+	*/
+	function anti_injection($sql)
+	{
+		// remove palavras que contenham sintaxe sql
+		$sql = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/"),"",$sql);
+		$sql = trim($sql);//limpa espaços vazio
+		$sql = strip_tags($sql);//tira tags html e php
+		$sql = addslashes($sql);//Adiciona barras invertidas a uma string
+		return $sql;
+	}
+
+	/** 
+	 * Método que inicia a sessão do usuário
+	*/
+	function start_session($id_user, $user_info, $session_name)
+	{
+		// Iniciando a sessão
+		session_start();
+
+		// Verificando se a sessão já existe
+		if(!isset($_SESSION["$session_name"]))
+		{
+			$_SESSION["$session_name"] = $user_info;
+		}
+	}
+	
+	// Método que destrói a sessão do usuário 
+	function destroy_session($id_user, $session_name)
+	{	
+		// Iniciando a sessão
+		session_start();
+
+		// Verificando se a sessão já existe
+		if(isset($_SESSION[$session_name]))
+		{
+			unset($_SESSION[$session_name]);
+		}
+	}
+	
+	// Método para a geração do cookie do usuário
+	function create_cookie($id_user, $cookie_name)
+	{
+		// Verificando se a sessão já existe
+		if(!isset($_COOKIE["$cookie_name"]))
+		{
+			setcookie($cookie_name, $id_user, 0, '/');
+		}
+	}
+
+	function get_idade($dt_nasc_)
+	{
+	    // Separa em dia, mês e ano
+	    list($dia, $mes, $ano) = explode('/', $dt_nasc_);
+	   
+	    // Descobre que dia é hoje e retorna a unix timestamp
+	    $hoje = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+	    // Descobre a unix timestamp da data de nascimento do fulano
+	    $nascimento = mktime( 0, 0, 0, $mes, $dia, $ano);
+	   
+	    // Depois apenas fazemos o cálculo já citado :)
+	    $idade = floor((((($hoje - $nascimento) / 60) / 60) / 24) / 365.25);
+	    return $idade;
+	}
 
 	//!*****************************************************************************
 	// NETWORK FUNCTIONS

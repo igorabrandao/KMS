@@ -6,7 +6,7 @@
 		<img src="<?php echo HOME_URI;?>/assets/img/texto.png" title="Logo AKC" alt="AKC" height="120" style="margin-left: -30px"></a>
 
 		<a class="phone-title" href="<?php echo HOME_URI;?>">"><img src="<?php echo HOME_URI;?>/assets/img/logo-mobile.png" alt="Mango" height="22" width="70" /></a>
-		
+
 		<!--<div class="buttons">
 			<a href="statistics.html">
 				<span class="icon icon-sitemap"></span>

@@ -60,6 +60,8 @@
 		*/
 		public $parametros = array();
 
+		public $user_info = array();
+
 		/**
 		 * Class constructor
 		 *
@@ -82,12 +84,29 @@
 			// Check logout
 			if ( isset($_GET["action"]) && strcmp($_GET["action"], "logout") == 0 )
 			{
+				// Remove o cookie com as informações do visitante
+				if (isset($_COOKIE["USR"])) 
+				{
+					setcookie("USR", false, (time() - 3600), '/');
+					unset($_COOKIE["USR"]);
+				}
+
 				$this->logout(true);
 			}
 			else
 			{
 				// Check login
 				$this->check_userlogin();
+
+				// Check the cookie
+				if (isset($_COOKIE["USR"])) 
+				{
+					$this->user_info = $this->get_user_info($_COOKIE["USR"]);
+				}
+				else
+				{
+					$this->logout(true);
+				}
 			}
 		} // __construct
 

@@ -19,6 +19,9 @@
 			// Function parameter
 			$parametros = ( func_num_args() >= 1 ) ? func_get_arg(0) : array();
 
+			// Load model
+			$modelo = $this->load_model('modulo_home/modulo_home-model');
+
 			/** Load files from view **/
 
 			// /views/_includes/header.php

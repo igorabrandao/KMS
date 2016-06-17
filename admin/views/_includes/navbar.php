@@ -3,7 +3,7 @@
 			<div class="right">
 				<ul>
 				
-					<li><a href="pages_profile.html"><span class="icon i14_admin-user"></span>Ver Perfil</a></li>
+					<li><a href="<?php echo join(DIRECTORY_SEPARATOR, array(HOME_URI, 'modulo_usuario/perfil_usuario')); ?>"><span class="icon i14_admin-user"></span>Ver Perfil</a></li>
 
 					<li class="space"></li>
 					

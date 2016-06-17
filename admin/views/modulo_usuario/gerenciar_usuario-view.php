@@ -66,7 +66,9 @@
 			<tr>
 				<th>#</th>
 				<th>Foto</th>
-				<th>CPF</th>
+				<?php if ( isset($this->user_info["ID_TIPO_USUARIO"]) && ( $this->user_info["ID_TIPO_USUARIO"] == 1 || $this->user_info["ID_TIPO_USUARIO"] == 2 ) ) { ?>
+					<th>CPF</th>
+				<?php } ?>
 				<th>Nome</th>
 				<th>Tipo de usuário</th>
 				<th>Faixa</th>
@@ -91,10 +93,20 @@
 					// Botões de ação
 					$nome = $value["PRIMEIRO_NOME"] . ' ' . $value["SOBRENOME"];
 
-					echo '<td class="center middle">
-						<a href="' . encrypted_url($value["ID_USUARIO"], HOME_URI . "/modulo_usuario/editar_usuario?id_User=") . '"; class="button small orange tooltip" data-gravity=s title="Editar usuário"><i class="icon-pencil"></i></a>
+					// Check if the user has permission to change the register
+					if ( isset($this->user_info["ID_TIPO_USUARIO"]) && ( $this->user_info["ID_TIPO_USUARIO"] == 1 || $this->user_info["ID_TIPO_USUARIO"] == 2 ) )
+					{
+						echo '<td class="center middle">
+							<a href="' . encrypted_url($value["ID_USUARIO"], HOME_URI . "/modulo_usuario/editar_usuario?id_User=") . '"; class="button small orange tooltip" data-gravity=s title="Editar usuário"><i class="icon-pencil"></i></a>
 
-						<a onClick="deleteUser(' . $value["ID_USUARIO"] . ', \'' . $nome . '\')" class="button small red tooltip" data-gravity=s title="Excluir usuário"><i class="icon-remove"></i></a></td>';
+							<a onClick="deleteUser(' . $value["ID_USUARIO"] . ', \'' . $nome . '\')" class="button small red tooltip" data-gravity=s title="Excluir usuário"><i class="icon-remove"></i></a>
+
+							<a href="' . encrypted_url($value["ID_USUARIO"], HOME_URI . "/modulo_usuario/perfil_usuario?id_User=") . '"; class="button small grey tooltip" data-gravity=s title="Visualizar perfil do usuário"><i class="icon-eye-open"></i></a></td>';
+					}
+					else
+					{
+						echo "<td class='center middle'>-</td>";
+					}
 
 					// Foto
 					if ( isset($value["FOTO"]) && strcmp($value["FOTO"], "")  != 0 )
@@ -107,13 +119,16 @@
 					}
 
 					// CPF
-					if ( isset($value["CPF"]) && strcmp($value["CPF"], "")  != 0 )
+					if ( isset($this->user_info["ID_TIPO_USUARIO"]) && ( $this->user_info["ID_TIPO_USUARIO"] == 1 || $this->user_info["ID_TIPO_USUARIO"] == 2 ) )
 					{
-						echo "<td class='center middle' title='" . $value["CPF"] . "'>" . $value["CPF"] . "</td>";
-					}
-					else
-					{
-						echo "<td class='center middle'>-</td>";
+						if ( isset($value["CPF"]) && strcmp($value["CPF"], "")  != 0 )
+						{
+							echo "<td class='center middle' title='" . $value["CPF"] . "'>" . $value["CPF"] . "</td>";
+						}
+						else
+						{
+							echo "<td class='center middle'>-</td>";
+						}
 					}
 
 					// Nome do usuário

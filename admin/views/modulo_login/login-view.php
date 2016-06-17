@@ -171,11 +171,6 @@
 	<script src="<?php echo HOME_URI;?>/assets/js/mylibs/syntaxhighlighter/shCore.js"></script>
 	<script src="<?php echo HOME_URI;?>/assets/js/mylibs/syntaxhighlighter/shAutoloader.js"></script>
 
-	<!-- Dynamic Tables -->
-	<script src="<?php echo HOME_URI;?>/assets/js/mylibs/dynamic-tables/jquery.dataTables.js"></script>
-	<script src="<?php echo HOME_URI;?>/assets/js/mylibs/dynamic-tables/jquery.dataTables.tableTools.zeroClipboard.js"></script>
-	<script src="<?php echo HOME_URI;?>/assets/js/mylibs/dynamic-tables/jquery.dataTables.tableTools.js"></script>
-
 	<!-- Do not touch! -->
 	<script src="<?php echo HOME_URI;?>/assets/js/mango.js"></script>
 	<script src="<?php echo HOME_URI;?>/assets/js/plugins.js"></script>
@@ -188,7 +183,15 @@
 
 </head>
 
-<body class=login>
+<style type="text/css">
+
+	.login-bg {
+		background: url('../assets/img/layout/bg2.jpg')!important;
+	}
+
+</style>
+
+<body class="login login-bg">
 
 	<!-- Some dialogs etc. -->
 
@@ -241,7 +244,7 @@
 		<div class="container">
 
 			<!-- Your logos -->
-			<a href="<?php echo HOME_URI;?>"><img src="<?php echo HOME_URI;?>/assets/img/logo.png" title="Logo AKC" alt="AKC" height="120"></a>
+			<a href="<?php echo HOME_URI;?>"><img src="<?php echo HOME_URI;?>/assets/img/logo.png" title="Associação Karatê Cidadão" alt="AKC" height="120"></a>
 
 			<!-- Right link -->
 			<div class="right">
@@ -273,7 +276,7 @@
 						}
 						else
 						{
-							echo'<div class="message welcome">Bem-vindo a AKC!</div>
+							echo'<div class="message welcome">Bem-vindo a AKC - Associação Karatê Cidadão!</div>
 								<div class="message failure">Informações incorretas.</div>';
 						}
 

@@ -41,7 +41,7 @@
 			</ul></nav><!-- End of nav -->				
 		</div><!-- End of .top -->
 		
-		<div class="bottom sticky">
+		<!--<div class="bottom sticky">
 			<div class="divider"></div>
 			<div class="progress">
 				<div class="bar" data-title="Space" data-value="1285" data-max="5120" data-format="0,0 MB"></div>
@@ -53,6 +53,6 @@
 				<a href="javascript:void(0);" class="button grey open-add-client-dialog">Add New Client</a>
 				<a href="javascript:void(0);" class="button grey open-add-client-dialog">Open a Ticket</a>
 			</div>
-		</div><!-- End of .bottom -->
+		</div>--><!-- End of .bottom -->
 	</aside>
 <!-- end: SIDEBAR -->

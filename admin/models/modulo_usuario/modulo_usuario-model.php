@@ -148,6 +148,42 @@
 		} // get_user_info
 
 		/**
+		 * Get user info
+		 * 
+		 * @since 0.1
+		 * @access public
+		*/
+		public function get_user_info_complete( $id_user_ ) 
+		{
+			// Select the necessary data from DB
+			$sql = "SELECT USR.`ID_USUARIO`, USR.`ID_TIPO_USUARIO`, USR.`ID_FAIXA`, USR.`PRIMEIRO_NOME`, USR.`SOBRENOME`, 
+				USR.`CPF`, USR.`DATA_NASCIMENTO`, USR.`SEXO`, USR.`EMAIL`, USR.`SENHA`, USR.`CHAVE`, USR.`TELEFONE`, 
+				USR.`CELULAR`, USR.`ID_ENDERECO`, USR.`TIPO_SANGUINEO`, USR.`FOTO`, USR.`DATA_CADASTRO`,
+				ADDR.`CEP`, ADDR.`LOGRADOURO`, ADDR.`NUMERO`, ADDR.`COMPLEMENTO`, ADDR.`BAIRRO`, ADDR.`CIDADE`, ADDR.`ID_UF`,
+				FX.`NOME` AS FAIXA, EST.`NOME` AS ESTADO
+				FROM 
+					`usuario` as USR 
+				INNER JOIN
+					`endereco` as ADDR ON ADDR.`ID_ENDERECO` = USR.`ID_ENDERECO`
+				INNER JOIN
+					`faixa` as FX ON FX.`ID_FAIXA` = USR.`ID_FAIXA`
+				INNER JOIN
+					`estados` as EST ON EST.`ID_ESTADO` = ADDR.`ID_UF`
+				WHERE 
+					USR.`ID_USUARIO` = " . $id_user_ . " AND
+					USR.`DATA_FECHA` IS NULL";
+
+			$query = $this->db->query($sql);
+
+			// Check if query worked
+			if ( ! $query )
+				return array();
+
+			// Return data to view
+			return $query->fetch();
+		} // get_user_info_complete
+
+		/**
 		 * Upload the user profile image
 		 *
 		 * @param $file_ 	=> file upload object

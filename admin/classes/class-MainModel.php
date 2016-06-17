@@ -64,14 +64,14 @@ class MainModel
 	public $parametros;
 
 	/**
-	 * $userdata
+	 * User data
 	 *
-	 * Dados do usuário
-	 *
+	 * @public
 	 * @access public
-	 */
+	 * @var array
+	*/
 	public $userdata;
-	
+
 	/**
 	 * Inverte datas 
 	 *
