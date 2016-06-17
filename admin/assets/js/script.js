@@ -680,11 +680,11 @@
 		// ! Checkbox and radio
 		$('input:checkbox').checkbox({
 			cls : 'checkbox',
-			empty : 'img/elements/checkbox/empty.png'
+			empty : '../assets/img/elements/checkbox/empty.png'
 		});
 		$('input:radio').checkbox({
 			cls : 'radiobutton',
-			empty : 'img/elements/checkbox/empty.png'
+			empty : '../assets/img/elements/checkbox/empty.png'
 		});
 		
 		// ! Select boxes
@@ -1733,374 +1733,374 @@
 		}
 		
 		mango.utils.preload([
-			'img/layout/navigation/arrow-active.png',
-			'img/layout/navigation/arrow-hover.png',
-			'img/layout/navigation/arrow.png',
-			'img/layout/navigation/bg-current.png',
-			'img/layout/navigation/bg-active.png',
-			'img/layout/navigation/bg-hover.png',
-			'img/layout/navigation/bg-normal.png'
+			'../assets/img/layout/navigation/arrow-active.png',
+			'../assets/img/layout/navigation/arrow-hover.png',
+			'../assets/img/layout/navigation/arrow.png',
+			'../assets/img/layout/navigation/bg-current.png',
+			'../assets/img/layout/navigation/bg-active.png',
+			'../assets/img/layout/navigation/bg-hover.png',
+			'../assets/img/layout/navigation/bg-normal.png'
 		]);
 		
 		mango.utils.preload([
-			'img/layout/sidebar/bg-right.png',
-			'img/layout/sidebar/bg.png',
-			'img/layout/sidebar/divider.png',
-			'img/layout/sidebar/shadow-right.png',
-			'img/layout/sidebar/shadow.png',
-			'img/layout/sidebar-right/header-bg.png',
-			'img/layout/sidebar-right/nav-bg-hover.png',
-			'img/layout/sidebar-right/nav-bg.png'
+			'../assets/img/layout/sidebar/bg-right.png',
+			'../assets/img/layout/sidebar/bg.png',
+			'../assets/img/layout/sidebar/divider.png',
+			'../assets/img/layout/sidebar/shadow-right.png',
+			'../assets/img/layout/sidebar/shadow.png',
+			'../assets/img/layout/sidebar-right/header-bg.png',
+			'../assets/img/layout/sidebar-right/nav-bg-hover.png',
+			'../assets/img/layout/sidebar-right/nav-bg.png'
 		]);
 		
 		mango.utils.preload([
-			'img/layout/toolbar/bg.png',
-			'img/layout/toolbar/buttons/bg-active.png',
-			'img/layout/toolbar/buttons/bg-disabled.png',
-			'img/layout/toolbar/buttons/bg-hover.png',
-			'img/layout/toolbar/buttons/bg-red-active.png',
-			'img/layout/toolbar/buttons/bg-red-disabled.png',
-			'img/layout/toolbar/buttons/bg-red-hover.png',
-			'img/layout/toolbar/buttons/bg-red.png',
-			'img/layout/toolbar/buttons/bg.png',
-			'img/layout/toolbar/buttons/divider.png'
+			'../assets/img/layout/toolbar/bg.png',
+			'../assets/img/layout/toolbar/buttons/bg-active.png',
+			'../assets/img/layout/toolbar/buttons/bg-disabled.png',
+			'../assets/img/layout/toolbar/buttons/bg-hover.png',
+			'../assets/img/layout/toolbar/buttons/bg-red-active.png',
+			'../assets/img/layout/toolbar/buttons/bg-red-disabled.png',
+			'../assets/img/layout/toolbar/buttons/bg-red-hover.png',
+			'../assets/img/layout/toolbar/buttons/bg-red.png',
+			'../assets/img/layout/toolbar/buttons/bg.png',
+			'../assets/img/layout/toolbar/buttons/divider.png'
 		]);
 		
-		mango.utils.preload(['img/layout/footer/divider.png']);
+		mango.utils.preload(['../assets/img/layout/footer/divider.png']);
 		
 				
 		mango.utils.preload([
-			'img/layout/bg.png',
-			'img/layout/content/box/actions-bg.png',
-			'img/layout/content/box/bg.png',
-			'img/layout/content/box/header-bg.png',
-			'img/layout/content/box/menu-active-bg.png',
-			'img/layout/content/box/menu-arrow.png',
-			'img/layout/content/box/menu-bg.png',
-			'img/layout/content/box/menu-item-bg-hover.png',
-			'img/layout/content/box/menu-item-bg.png',
-			'img/layout/content/box/tab-hover.png',
-			'img/layout/content/toolbar/bg-shortcuts.png',
-			'img/layout/content/toolbar/bg.png',
-			'img/layout/content/toolbar/divider.png',
-			'img/layout/content/toolbar/popup-arrow.png',
-			'img/layout/content/toolbar/popup-header.png',
-			'img/layout/content/toolbar/user/arrow-normal.png',
-			'img/layout/content/toolbar/user/avatar-bg.png',
-			'img/layout/content/toolbar/user/avatar.png',
-			'img/layout/content/toolbar/user/bg-hover.png',
-			'img/layout/content/toolbar/user/bg-menu-hover.png',
-			'img/layout/content/toolbar/user/counter.png'
+			'../assets/img/layout/bg.png',
+			'../assets/img/layout/content/box/actions-bg.png',
+			'../assets/img/layout/content/box/bg.png',
+			'../assets/img/layout/content/box/header-bg.png',
+			'../assets/img/layout/content/box/menu-active-bg.png',
+			'../assets/img/layout/content/box/menu-arrow.png',
+			'../assets/img/layout/content/box/menu-bg.png',
+			'../assets/img/layout/content/box/menu-item-bg-hover.png',
+			'../assets/img/layout/content/box/menu-item-bg.png',
+			'../assets/img/layout/content/box/tab-hover.png',
+			'../assets/img/layout/content/toolbar/bg-shortcuts.png',
+			'../assets/img/layout/content/toolbar/bg.png',
+			'../assets/img/layout/content/toolbar/divider.png',
+			'../assets/img/layout/content/toolbar/popup-arrow.png',
+			'../assets/img/layout/content/toolbar/popup-header.png',
+			'../assets/img/layout/content/toolbar/user/arrow-normal.png',
+			'../assets/img/layout/content/toolbar/user/avatar-bg.png',
+			'../assets/img/layout/content/toolbar/user/avatar.png',
+			'../assets/img/layout/content/toolbar/user/bg-hover.png',
+			'../assets/img/layout/content/toolbar/user/bg-menu-hover.png',
+			'../assets/img/layout/content/toolbar/user/counter.png'
 		]);
 		
 		
 		mango.utils.preload([
-			'img/elements/alert-boxes/bg-error.png',
-			'img/elements/alert-boxes/bg-information.png',
-			'img/elements/alert-boxes/bg-note.png',
-			'img/elements/alert-boxes/bg-success.png',
-			'img/elements/alert-boxes/bg-warning.png',
-			'img/elements/alert-boxes/error.png',
-			'img/elements/alert-boxes/information.png',
-			'img/elements/alert-boxes/note.png',
-			'img/elements/alert-boxes/success.png',
-			'img/elements/alert-boxes/warning.png'
+			'../assets/img/elements/alert-boxes/bg-error.png',
+			'../assets/img/elements/alert-boxes/bg-information.png',
+			'../assets/img/elements/alert-boxes/bg-note.png',
+			'../assets/img/elements/alert-boxes/bg-success.png',
+			'../assets/img/elements/alert-boxes/bg-warning.png',
+			'../assets/img/elements/alert-boxes/error.png',
+			'../assets/img/elements/alert-boxes/information.png',
+			'../assets/img/elements/alert-boxes/note.png',
+			'../assets/img/elements/alert-boxes/success.png',
+			'../assets/img/elements/alert-boxes/warning.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/breadcrumb/bg-active.png',
-			'img/elements/breadcrumb/bg-hover.png',
-			'img/elements/breadcrumb/divider-active.png',
-			'img/elements/breadcrumb/divider-hover.png'
+			'../assets/img/elements/breadcrumb/bg-active.png',
+			'../assets/img/elements/breadcrumb/bg-hover.png',
+			'../assets/img/elements/breadcrumb/divider-active.png',
+			'../assets/img/elements/breadcrumb/divider-hover.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/headerbuttons/bg-active.png',
-			'img/elements/headerbuttons/bg-hover.png'
+			'../assets/img/elements/headerbuttons/bg-active.png',
+			'../assets/img/elements/headerbuttons/bg-hover.png'
 		]);
 	
 		mango.utils.preload([
-			'img/elements/autocomplete/el-bg-hover.png'
+			'../assets/img/elements/autocomplete/el-bg-hover.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/calendar/arrow-hover-bg.png'
+			'../assets/img/elements/calendar/arrow-hover-bg.png'
 		]);
 		
-		mango.utils.preload(['img/elements/charts/hover-bg.png']);
+		mango.utils.preload(['../assets/img/elements/charts/hover-bg.png']);
 		
 		mango.utils.preload([
-			'img/elements/messages/button-active-bg.png',
-			'img/elements/messages/button-hover-bg.png'
-		]);
-		
-		mango.utils.preload([
-			'img/elements/messages/button-active-bg.png',
-			'img/elements/messages/button-hover-bg.png'
+			'../assets/img/elements/messages/button-active-bg.png',
+			'../assets/img/elements/messages/button-hover-bg.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/mail/actions-bg.png',
-			'img/elements/mail/button-bg-disabled.png',
-			'img/elements/mail/button-bg-hover.png',
-			'img/elements/mail/button-bg.png',
-			'img/elements/mail/button-red-bg-hover.png',
-			'img/elements/mail/button-red-bg.png',
-			'img/elements/mail/button-red-disabled.png',
-			'img/elements/mail/hover-bg.png',
-			'img/elements/mail/mail.png',
-			'img/elements/mail/text-arrow.png',
-			'img/elements/mail/text-bg.png'
+			'../assets/img/elements/messages/button-active-bg.png',
+			'../assets/img/elements/messages/button-hover-bg.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/fullstats/list/hover-bg.png',
-			'img/elements/fullstats/simple/a-active.png',
-			'img/elements/fullstats/simple/a-hover.png'
+			'../assets/img/elements/mail/actions-bg.png',
+			'../assets/img/elements/mail/button-bg-disabled.png',
+			'../assets/img/elements/mail/button-bg-hover.png',
+			'../assets/img/elements/mail/button-bg.png',
+			'../assets/img/elements/mail/button-red-bg-hover.png',
+			'../assets/img/elements/mail/button-red-bg.png',
+			'../assets/img/elements/mail/button-red-disabled.png',
+			'../assets/img/elements/mail/hover-bg.png',
+			'../assets/img/elements/mail/mail.png',
+			'../assets/img/elements/mail/text-arrow.png',
+			'../assets/img/elements/mail/text-bg.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/checkbox/checked-active.png',
-			'img/elements/checkbox/checked-disabled.png',
-			'img/elements/checkbox/checked-hover.png',
-			'img/elements/checkbox/checked-normal.png',
-			'img/elements/checkbox/unchecked-active.png',
-			'img/elements/checkbox/unchecked-disabled.png',
-			'img/elements/checkbox/unchecked-hover.png',
-			'img/elements/checkbox/unchecked-normal.png'
+			'../assets/img/elements/fullstats/list/hover-bg.png',
+			'../assets/img/elements/fullstats/simple/a-active.png',
+			'../assets/img/elements/fullstats/simple/a-hover.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/radiobutton/checked-active.png',
-			'img/elements/radiobutton/checked-disabled.png',
-			'img/elements/radiobutton/checked-hover.png',
-			'img/elements/radiobutton/checked-normal.png',
-			'img/elements/radiobutton/unchecked-active.png',
-			'img/elements/radiobutton/unchecked-disabled.png',
-			'img/elements/radiobutton/unchecked-hover.png',
-			'img/elements/radiobutton/unchecked-normal.png'
+			'../assets/img/elements/checkbox/checked-active.png',
+			'../assets/img/elements/checkbox/checked-disabled.png',
+			'../assets/img/elements/checkbox/checked-hover.png',
+			'../assets/img/elements/checkbox/checked-normal.png',
+			'../assets/img/elements/checkbox/unchecked-active.png',
+			'../assets/img/elements/checkbox/unchecked-disabled.png',
+			'../assets/img/elements/checkbox/unchecked-hover.png',
+			'../assets/img/elements/checkbox/unchecked-normal.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/colorpicker/arrow.png',
-			'img/elements/colorpicker/bg.png'
+			'../assets/img/elements/radiobutton/checked-active.png',
+			'../assets/img/elements/radiobutton/checked-disabled.png',
+			'../assets/img/elements/radiobutton/checked-hover.png',
+			'../assets/img/elements/radiobutton/checked-normal.png',
+			'../assets/img/elements/radiobutton/unchecked-active.png',
+			'../assets/img/elements/radiobutton/unchecked-disabled.png',
+			'../assets/img/elements/radiobutton/unchecked-hover.png',
+			'../assets/img/elements/radiobutton/unchecked-normal.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/forms/icon-error.png',
-			'img/elements/forms/icon-success.png',
-			'img/elements/forms/tooltip-error-arrow.png',
-			'img/elements/forms/tooltip-error.png'
+			'../assets/img/elements/colorpicker/arrow.png',
+			'../assets/img/elements/colorpicker/bg.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/profile/change-active-bg.png',
-			'img/elements/profile/change-hover-bg.png'
+			'../assets/img/elements/forms/icon-error.png',
+			'../assets/img/elements/forms/icon-success.png',
+			'../assets/img/elements/forms/tooltip-error-arrow.png',
+			'../assets/img/elements/forms/tooltip-error.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/search/arrow.png',
-			'img/elements/search/glass.png',
-			'img/elements/search/list-hover.png',
-			'img/elements/search/loading.gif'
-		]);
-
-		mango.utils.preload([
-			'img/elements/select/bg-active.png',
-			'img/elements/select/bg-hover.png',
-			'img/elements/select/bg-right-hover.png',
-			'img/elements/select/list-hover-bg.png'
+			'../assets/img/elements/profile/change-active-bg.png',
+			'../assets/img/elements/profile/change-hover-bg.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/settings/header-bg.png',
-			'img/elements/settings/header-current-bg.png',
-			'img/elements/settings/header-hover-bg.png',
-			'img/elements/settings/seperator-current-left.png',
-			'img/elements/settings/seperator-current-right.png',
-			'img/elements/settings/seperator.png'
+			'../assets/img/elements/search/arrow.png',
+			'../assets/img/elements/search/glass.png',
+			'../assets/img/elements/search/list-hover.png',
+			'../assets/img/elements/search/loading.gif'
 		]);
 
 		mango.utils.preload([
-			'img/elements/slide-unlock/lock-slider.png'
+			'../assets/img/elements/select/bg-active.png',
+			'../assets/img/elements/select/bg-hover.png',
+			'../assets/img/elements/select/bg-right-hover.png',
+			'../assets/img/elements/select/list-hover-bg.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/spinner/arrow-down-active.png',
-			'img/elements/spinner/arrow-down-hover.png',
-			'img/elements/spinner/arrow-up-active.png',
-			'img/elements/spinner/arrow-up-hover.png',
-			'img/elements/table/pagination/active.png',
-			'img/elements/table/pagination/disabled.png',
-			'img/elements/table/pagination/hover.png',
-			'img/elements/table/toolbar/hover.png',
-			'img/elements/table/sorting-asc.png',
-			'img/elements/table/sorting-desc.png',
-			'img/elements/table/sorting.png'
+			'../assets/img/elements/settings/header-bg.png',
+			'../assets/img/elements/settings/header-current-bg.png',
+			'../assets/img/elements/settings/header-hover-bg.png',
+			'../assets/img/elements/settings/seperator-current-left.png',
+			'../assets/img/elements/settings/seperator-current-right.png',
+			'../assets/img/elements/settings/seperator.png'
+		]);
+
+		mango.utils.preload([
+			'../assets/img/elements/slide-unlock/lock-slider.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/tags/bg.png',
-			'img/elements/tags/left.png'
+			'../assets/img/elements/spinner/arrow-down-active.png',
+			'../assets/img/elements/spinner/arrow-down-hover.png',
+			'../assets/img/elements/spinner/arrow-up-active.png',
+			'../assets/img/elements/spinner/arrow-up-hover.png',
+			'../assets/img/elements/table/pagination/active.png',
+			'../assets/img/elements/table/pagination/disabled.png',
+			'../assets/img/elements/table/pagination/hover.png',
+			'../assets/img/elements/table/toolbar/hover.png',
+			'../assets/img/elements/table/sorting-asc.png',
+			'../assets/img/elements/table/sorting-desc.png',
+			'../assets/img/elements/table/sorting.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/to-top/active.png',
-			'img/elements/to-top/hover.png',
-			'img/elements/to-top/normal.png'
-		]);
-		
-		mango.utils.preload(['img/elements/tooltips/bg.png']);
-		
-		mango.utils.preload([
-			'img/elements/upload/bg-hover.png',
-			'img/elements/upload/bg-normal.png'
+			'../assets/img/elements/tags/bg.png',
+			'../assets/img/elements/tags/left.png'
 		]);
 		
 		mango.utils.preload([
-			'img/elements/wizard/arrow-current.png',
-			'img/elements/wizard/arrow-error.png',
-			'img/elements/wizard/arrow-normal.png',
-			'img/elements/wizard/arrow-success.png',
-			'img/elements/wizard/bg-current.png',
-			'img/elements/wizard/bg-error.png',
-			'img/elements/wizard/bg-normal.png',
-			'img/elements/wizard/bg-success.png',
-			'img/elements/wizard/bg.png'
+			'../assets/img/elements/to-top/active.png',
+			'../assets/img/elements/to-top/hover.png',
+			'../assets/img/elements/to-top/normal.png'
+		]);
+		
+		mango.utils.preload(['../assets/img/elements/tooltips/bg.png']);
+		
+		mango.utils.preload([
+			'../assets/img/elements/upload/bg-hover.png',
+			'../assets/img/elements/upload/bg-normal.png'
 		]);
 		
 		mango.utils.preload([
-			'img/external/chosen-sprite.png'
+			'../assets/img/elements/wizard/arrow-current.png',
+			'../assets/img/elements/wizard/arrow-error.png',
+			'../assets/img/elements/wizard/arrow-normal.png',
+			'../assets/img/elements/wizard/arrow-success.png',
+			'../assets/img/elements/wizard/bg-current.png',
+			'../assets/img/elements/wizard/bg-error.png',
+			'../assets/img/elements/wizard/bg-normal.png',
+			'../assets/img/elements/wizard/bg-success.png',
+			'../assets/img/elements/wizard/bg.png'
 		]);
 		
 		mango.utils.preload([
-			'img/external/colorpicker/blank.gif',
-			'img/external/colorpicker/colorpicker_background.png',
-			'img/external/colorpicker/colorpicker_hex.png',
-			'img/external/colorpicker/colorpicker_hsb_b.png',
-			'img/external/colorpicker/colorpicker_hsb_h.png',
-			'img/external/colorpicker/colorpicker_hsb_s.png',
-			'img/external/colorpicker/colorpicker_indic.gif',
-			'img/external/colorpicker/colorpicker_overlay.png',
-			'img/external/colorpicker/colorpicker_rgb_b.png',
-			'img/external/colorpicker/colorpicker_rgb_g.png',
-			'img/external/colorpicker/colorpicker_rgb_r.png',
-			'img/external/colorpicker/colorpicker_select.gif',
-			'img/external/colorpicker/colorpicker_submit.png',
-			'img/external/colorpicker/custom_background.png',
-			'img/external/colorpicker/custom_hex.png',
-			'img/external/colorpicker/custom_hsb_b.png',
-			'img/external/colorpicker/custom_hsb_h.png',
-			'img/external/colorpicker/custom_hsb_s.png',
-			'img/external/colorpicker/custom_indic.gif',
-			'img/external/colorpicker/custom_rgb_b.png',
-			'img/external/colorpicker/custom_rgb_g.png',
-			'img/external/colorpicker/custom_rgb_r.png',
-			'img/external/colorpicker/custom_submit.png',
-			'img/external/colorpicker/select.png',
-			'img/external/colorpicker/select2.png',
-			'img/external/colorpicker/slider.png'
+			'../assets/img/external/chosen-sprite.png'
 		]);
 		
 		mango.utils.preload([
-			'img/external/editor/buttons.gif',
-			'img/external/editor/toolbar.gif'
+			'../assets/img/external/colorpicker/blank.gif',
+			'../assets/img/external/colorpicker/colorpicker_background.png',
+			'../assets/img/external/colorpicker/colorpicker_hex.png',
+			'../assets/img/external/colorpicker/colorpicker_hsb_b.png',
+			'../assets/img/external/colorpicker/colorpicker_hsb_h.png',
+			'../assets/img/external/colorpicker/colorpicker_hsb_s.png',
+			'../assets/img/external/colorpicker/colorpicker_indic.gif',
+			'../assets/img/external/colorpicker/colorpicker_overlay.png',
+			'../assets/img/external/colorpicker/colorpicker_rgb_b.png',
+			'../assets/img/external/colorpicker/colorpicker_rgb_g.png',
+			'../assets/img/external/colorpicker/colorpicker_rgb_r.png',
+			'../assets/img/external/colorpicker/colorpicker_select.gif',
+			'../assets/img/external/colorpicker/colorpicker_submit.png',
+			'../assets/img/external/colorpicker/custom_background.png',
+			'../assets/img/external/colorpicker/custom_hex.png',
+			'../assets/img/external/colorpicker/custom_hsb_b.png',
+			'../assets/img/external/colorpicker/custom_hsb_h.png',
+			'../assets/img/external/colorpicker/custom_hsb_s.png',
+			'../assets/img/external/colorpicker/custom_indic.gif',
+			'../assets/img/external/colorpicker/custom_rgb_b.png',
+			'../assets/img/external/colorpicker/custom_rgb_g.png',
+			'../assets/img/external/colorpicker/custom_rgb_r.png',
+			'../assets/img/external/colorpicker/custom_submit.png',
+			'../assets/img/external/colorpicker/select.png',
+			'../assets/img/external/colorpicker/select2.png',
+			'../assets/img/external/colorpicker/slider.png'
 		]);
 		
 		mango.utils.preload([
-			'img/external/explorer/arrows-active.png',
-			'img/external/explorer/arrows-normal.png',
-			'img/external/explorer/crop.gif',
-			'img/external/explorer/dialogs.png',
-			'img/external/explorer/icons-big.png',
-			'img/external/explorer/icons-small.png',
-			'img/external/explorer/logo.png',
-			'img/external/explorer/progress.gif',
-			'img/external/explorer/quicklook-bg.png',
-			'img/external/explorer/quicklook-icons.png',
-			'img/external/explorer/resize.png',
-			'img/external/explorer/spinner-mini.gif',
-			'img/external/explorer/toolbar.png'
+			'../assets/img/external/editor/buttons.gif',
+			'../assets/img/external/editor/toolbar.gif'
 		]);
 		
 		mango.utils.preload([
-			'img/external/gallery/blank.gif',
-			'img/external/gallery/fancybox_buttons.png',
-			'img/external/gallery/fancybox_loading.gif',
-			'img/external/gallery/fancybox_sprite.png'
+			'../assets/img/external/explorer/arrows-active.png',
+			'../assets/img/external/explorer/arrows-normal.png',
+			'../assets/img/external/explorer/crop.gif',
+			'../assets/img/external/explorer/dialogs.png',
+			'../assets/img/external/explorer/icons-big.png',
+			'../assets/img/external/explorer/icons-small.png',
+			'../assets/img/external/explorer/logo.png',
+			'../assets/img/external/explorer/progress.gif',
+			'../assets/img/external/explorer/quicklook-bg.png',
+			'../assets/img/external/explorer/quicklook-icons.png',
+			'../assets/img/external/explorer/resize.png',
+			'../assets/img/external/explorer/spinner-mini.gif',
+			'../assets/img/external/explorer/toolbar.png'
 		]);
 		
 		mango.utils.preload([
-			'img/external/jquery-ui/ui-bg_flat_0_000000_40x100.png',
-			'img/external/jquery-ui/ui-bg_flat_30_000000_40x100.png',
-			'img/external/jquery-ui/ui-bg_flat_65_e3e3e3_40x100.png',
-			'img/external/jquery-ui/ui-bg_flat_75_ffffff_40x100.png',
-			'img/external/jquery-ui/ui-bg_glass_55_fbf9ee_1x400.png',
-			'img/external/jquery-ui/ui-bg_highlight-hard_100_f0f0f0_1x100.png',
-			'img/external/jquery-ui/ui-bg_highlight-soft_100_e8e8e8_1x100.png',
-			'img/external/jquery-ui/ui-bg_highlight-soft_75_b3bfcb_1x100.png',
-			'img/external/jquery-ui/ui-bg_inset-soft_95_fef1ec_1x100.png',
-			'img/external/jquery-ui/ui-icons_222222_256x240.png',
-			'img/external/jquery-ui/ui-icons_2e83ff_256x240.png',
-			'img/external/jquery-ui/ui-icons_3a4450_256x240.png',
-			'img/external/jquery-ui/ui-icons_454545_256x240.png',
-			'img/external/jquery-ui/ui-icons_888888_256x240.png',
-			'img/external/jquery-ui/ui-icons_cd0a0a_256x240.png'
+			'../assets/img/external/gallery/blank.gif',
+			'../assets/img/external/gallery/fancybox_buttons.png',
+			'../assets/img/external/gallery/fancybox_loading.gif',
+			'../assets/img/external/gallery/fancybox_sprite.png'
 		]);
 		
 		mango.utils.preload([
-			'img/external/uploader/backgrounds.gif',
-			'img/external/uploader/buttons-disabled.png',
-			'img/external/uploader/buttons.png',
-			'img/external/uploader/delete.gif',
-			'img/external/uploader/done.gif',
-			'img/external/uploader/error.gif',
-			'img/external/uploader/throbber.gif',
-			'img/external/uploader/transp50.png'
+			'../assets/img/external/jquery-ui/ui-bg_flat_0_000000_40x100.png',
+			'../assets/img/external/jquery-ui/ui-bg_flat_30_000000_40x100.png',
+			'../assets/img/external/jquery-ui/ui-bg_flat_65_e3e3e3_40x100.png',
+			'../assets/img/external/jquery-ui/ui-bg_flat_75_ffffff_40x100.png',
+			'../assets/img/external/jquery-ui/ui-bg_glass_55_fbf9ee_1x400.png',
+			'../assets/img/external/jquery-ui/ui-bg_highlight-hard_100_f0f0f0_1x100.png',
+			'../assets/img/external/jquery-ui/ui-bg_highlight-soft_100_e8e8e8_1x100.png',
+			'../assets/img/external/jquery-ui/ui-bg_highlight-soft_75_b3bfcb_1x100.png',
+			'../assets/img/external/jquery-ui/ui-bg_inset-soft_95_fef1ec_1x100.png',
+			'../assets/img/external/jquery-ui/ui-icons_222222_256x240.png',
+			'../assets/img/external/jquery-ui/ui-icons_2e83ff_256x240.png',
+			'../assets/img/external/jquery-ui/ui-icons_3a4450_256x240.png',
+			'../assets/img/external/jquery-ui/ui-icons_454545_256x240.png',
+			'../assets/img/external/jquery-ui/ui-icons_888888_256x240.png',
+			'../assets/img/external/jquery-ui/ui-icons_cd0a0a_256x240.png'
 		]);
 		
 		mango.utils.preload([
-			'img/jquery-ui/accordion-header-active.png',
-			'img/jquery-ui/accordion-header-hover.png',
-			'img/jquery-ui/accordion-header.png',
-			'img/jquery-ui/datepicker/arrow-left.png',
-			'img/jquery-ui/datepicker/arrow-right.png',
-			'img/jquery-ui/datepicker/button-bg.png',
-			'img/jquery-ui/datepicker/button-hover-bg.png',
-			'img/jquery-ui/datepicker/button-seperator.png',
-			'img/jquery-ui/datepicker/day-current.png',
-			'img/jquery-ui/datepicker/day-hover.png',
-			'img/jquery-ui/datepicker/days-of-week-bg.png',
-			'img/jquery-ui/datepicker/header-bg.png',
-			'img/jquery-ui/datepicker/time-bg.png',
-			'img/jquery-ui/datepicker/top-arrow.png',
-			'img/jquery-ui/dialog-titlebar-close-hover.png',
-			'img/jquery-ui/dialog-titlebar.png',
-			'img/jquery-ui/loading.gif',
-			'img/jquery-ui/progressbar/bg.png',
-			'img/jquery-ui/progressbar/fill-blue-small.png',
-			'img/jquery-ui/progressbar/fill-blue.gif',
-			'img/jquery-ui/progressbar/fill-blue.png',
-			'img/jquery-ui/progressbar/fill-grey.gif',
-			'img/jquery-ui/progressbar/fill-grey.png',
-			'img/jquery-ui/progressbar/fill-orange-small.png',
-			'img/jquery-ui/progressbar/fill-orange.gif',
-			'img/jquery-ui/progressbar/fill-orange.png',
-			'img/jquery-ui/progressbar/fill-red-small.png',
-			'img/jquery-ui/progressbar/fill-red.gif',
-			'img/jquery-ui/progressbar/fill-red.png',
-			'img/jquery-ui/slider/bg-range.png',
-			'img/jquery-ui/slider/bg.png',
-			'img/jquery-ui/slider/disabled-bg-range.png',
-			'img/jquery-ui/slider/disabled-bg.png',
-			'img/jquery-ui/slider/disabled-picker.png',
-			'img/jquery-ui/slider/disabled-vertical-bg-range.png',
-			'img/jquery-ui/slider/disabled-vertical-bg.png',
-			'img/jquery-ui/slider/disabled-vertical-picker.png',
-			'img/jquery-ui/slider/picker.png',
-			'img/jquery-ui/slider/vertical-bg-range.png',
-			'img/jquery-ui/slider/vertical-bg.png',
-			'img/jquery-ui/slider/vertical-picker.png'
+			'../assets/img/external/uploader/backgrounds.gif',
+			'../assets/img/external/uploader/buttons-disabled.png',
+			'../assets/img/external/uploader/buttons.png',
+			'../assets/img/external/uploader/delete.gif',
+			'../assets/img/external/uploader/done.gif',
+			'../assets/img/external/uploader/error.gif',
+			'../assets/img/external/uploader/throbber.gif',
+			'../assets/img/external/uploader/transp50.png'
+		]);
+		
+		mango.utils.preload([
+			'../assets/img/jquery-ui/accordion-header-active.png',
+			'../assets/img/jquery-ui/accordion-header-hover.png',
+			'../assets/img/jquery-ui/accordion-header.png',
+			'../assets/img/jquery-ui/datepicker/arrow-left.png',
+			'../assets/img/jquery-ui/datepicker/arrow-right.png',
+			'../assets/img/jquery-ui/datepicker/button-bg.png',
+			'../assets/img/jquery-ui/datepicker/button-hover-bg.png',
+			'../assets/img/jquery-ui/datepicker/button-seperator.png',
+			'../assets/img/jquery-ui/datepicker/day-current.png',
+			'../assets/img/jquery-ui/datepicker/day-hover.png',
+			'../assets/img/jquery-ui/datepicker/days-of-week-bg.png',
+			'../assets/img/jquery-ui/datepicker/header-bg.png',
+			'../assets/img/jquery-ui/datepicker/time-bg.png',
+			'../assets/img/jquery-ui/datepicker/top-arrow.png',
+			'../assets/img/jquery-ui/dialog-titlebar-close-hover.png',
+			'../assets/img/jquery-ui/dialog-titlebar.png',
+			'../assets/img/jquery-ui/loading.gif',
+			'../assets/img/jquery-ui/progressbar/bg.png',
+			'../assets/img/jquery-ui/progressbar/fill-blue-small.png',
+			'../assets/img/jquery-ui/progressbar/fill-blue.gif',
+			'../assets/img/jquery-ui/progressbar/fill-blue.png',
+			'../assets/img/jquery-ui/progressbar/fill-grey.gif',
+			'../assets/img/jquery-ui/progressbar/fill-grey.png',
+			'../assets/img/jquery-ui/progressbar/fill-orange-small.png',
+			'../assets/img/jquery-ui/progressbar/fill-orange.gif',
+			'../assets/img/jquery-ui/progressbar/fill-orange.png',
+			'../assets/img/jquery-ui/progressbar/fill-red-small.png',
+			'../assets/img/jquery-ui/progressbar/fill-red.gif',
+			'../assets/img/jquery-ui/progressbar/fill-red.png',
+			'../assets/img/jquery-ui/slider/bg-range.png',
+			'../assets/img/jquery-ui/slider/bg.png',
+			'../assets/img/jquery-ui/slider/disabled-bg-range.png',
+			'../assets/img/jquery-ui/slider/disabled-bg.png',
+			'../assets/img/jquery-ui/slider/disabled-picker.png',
+			'../assets/img/jquery-ui/slider/disabled-vertical-bg-range.png',
+			'../assets/img/jquery-ui/slider/disabled-vertical-bg.png',
+			'../assets/img/jquery-ui/slider/disabled-vertical-picker.png',
+			'../assets/img/jquery-ui/slider/picker.png',
+			'../assets/img/jquery-ui/slider/vertical-bg-range.png',
+			'../assets/img/jquery-ui/slider/vertical-bg.png',
+			'../assets/img/jquery-ui/slider/vertical-picker.png'
 		]);
 		
 	});

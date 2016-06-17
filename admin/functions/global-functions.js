@@ -516,6 +516,7 @@
 		$('[name="CPF"]').mask('999.999.999-99', {reverse: true});
 		$('[name="CNPJ"]').mask('99.999.999/9999-99', {reverse: true});
 		$('[name="DATA_NASCIMENTO"]').mask('99/99/9999');
+		$('[name="DATA_AULA"]').mask('99/99/9999');
 		$('[name="CEP"]').mask('99999-999');
 		$('[name="TELEFONE"]').mask('(99)9999-9999');
 		$('[name="CELULAR"]').mask('(99)99999-9999');

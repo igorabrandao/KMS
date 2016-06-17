@@ -3,12 +3,28 @@
 
 	<?php
 
-		// Insertion function
-		$modelo->insert_class();
+		// Check if class ID is valid
+		if ( isset($_GET['id_Aula']) && $_GET['id_Aula'] != '' )
+		{
+			$class_id = decrypted_url($_GET['id_Aula'] , "**");
+
+			// Load class information
+			$class_info = $modelo->get_class_info($class_id);
+			$frequency_info = $modelo->get_frequency_info($class_id);
+
+			// Edit function
+			$modelo->edit_class($class_id);
+		}
+		else
+		{
+			?><script>alert("Houve um problema com o identificador da aula. Por favor, tente novamente.");
+			window.location.href = "<?php echo HOME_URI . '/modulo_aula'; ?>";</script> <?php
+			return false;
+		}
 
 	?>
 
-	<h1 class="grid_12 margin-top no-margin-top-phone" title="Cadastrar Aula">Cadastrar Aula</h1>
+	<h1 class="grid_12 margin-top no-margin-top-phone" title="Editar Aula">Editar Aula</h1>
 
 	<div class="grid_12">
 
@@ -33,7 +49,7 @@
 							<small>(Preenchimento obrigatório)</small>
 						</label>
 						<div>
-							<input type="date" class="required" name="DATA_AULA" id="DATA_AULA" />
+							<input type="date" class="required" name="DATA_AULA" id="DATA_AULA" value="<?php echo iif($class_info["DATA_AULA"]); ?>"/>
 						</div>
 					</div>
 
@@ -42,7 +58,7 @@
 							<strong>Conteúdo ministrado:</strong>
 						</label>
 						<div>
-							<textarea class="editor" name="CONTEUDO_MINISTRADO" id="CONTEUDO_MINISTRADO" ></textarea>
+							<textarea class="editor" name="CONTEUDO_MINISTRADO" id="CONTEUDO_MINISTRADO" ><?php echo iif($class_info["CONTEUDO_MINISTRADO"]); ?></textarea>
 						</div>
 					</div>
 
@@ -61,7 +77,10 @@
 
 									foreach ($list as $value)
 									{
-										echo "<option value='" . $value[0] . "'>" . $value[1] . " " . $value[2] . "</option>";
+										if ( $class_info["ID_PROFESSOR"] == $value[0] )
+											echo "<option value='" . $value[0] . "' selected>" . $value[1] . " " . $value[2] . "</option>";
+										else
+											echo "<option value='" . $value[0] . "'>" . $value[1] . " " . $value[2] . "</option>";
 									}
 
 								?>
@@ -105,6 +124,7 @@
 											{
 												// Init row
 												echo "<tr>";
+												$checked = "";
 
 												// Nome do usuário
 												if ( isset($value["PRIMEIRO_NOME"]) && strcmp($value["PRIMEIRO_NOME"], "")  != 0 )
@@ -123,9 +143,18 @@
 													}
 												}
 
-												// Checkbox
+												// Check if the student was present in the class
+												foreach ( $frequency_info as $f_list )
+												{
+													if ( $f_list["ID_ALUNO"] == $value["ID_USUARIO"] && $f_list["PRESENTE"] == 1)
+													{
+														$checked = "checked";
+													}
+												}
+
+												// Checkbox (check the presence)
 												echo "<td class='center middle' title='" . $value["PRIMEIRO_NOME"] . " " . $value["SOBRENOME"] . " está presente?'>
-													<input type='checkbox' name='PRESENTE' id='PRESENTE" . $count . "' />
+													<input " . $checked . " type='checkbox' name='PRESENTE' id='PRESENTE" . $count . "' />
 												</td>";
 
 												$count++;
